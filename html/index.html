@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Chrystian Raony Perazzoli" />
+    <meta name="description" content="cadastro de pessoas" />
+    <meta name="keywords" content="cadastro, pessoas" />
+
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css"
+    />
+    <title>Cadastro de Pessoas</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="content">
+          <div id="logo">
+            <a href="index.html">
+              <img src="../img/logo.png" alt="logo" />
+            </a>
+          </div>
+          <nav>
+            <ul>
+              <li>
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <a href="#">Usúario</a>
+              </li>
+              <li>
+                <a href="#">Contato</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="usuarios">
+        <div class="container">
+          <h2>
+            Lista de Usúarios
+            <a href="new.html" class="btn btn-new">
+              <span class="mdi mdi-account-multiple-plus"></span>
+              Criar Usuário
+            </a>
+          </h2>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>RG</th>
+                <th>E-mail</th>
+                <th>Cidade</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>chrystian</td>
+                <td>1351846</td>
+                <td>3656844</td>
+                <td>contato@gmail.com</td>
+                <td>videira - SC</td>
+                <td class="acoes">
+                  <a href="/visualizar/1" class="btn btn-show">
+                    <span class="mdi mdi-eye"></span>
+                  </a>
+                  <a href="/editar/1" class="btn btn-edit">
+                    <span class="mdi mdi-lead-pencil"></span>
+                  </a>
+                  <a href="/excluir/1" class="btn btn-delete">
+                    <span class="mdi mdi-trash-can-outline"></span>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>chrystian</td>
+                <td>1351846</td>
+                <td>3656844</td>
+                <td>contato@gmail.com</td>
+                <td>videira - SC</td>
+                <td class="acoes">
+                  <a href="/visualizar/1" class="btn btn-show">
+                    <span class="mdi mdi-eye"></span>
+                  </a>
+                  <a href="/editar/1" class="btn btn-edit">
+                    <span class="mdi mdi-lead-pencil"></span>
+                  </a>
+                  <a href="/excluir/1" class="btn btn-delete">
+                    <span class="mdi mdi-trash-can-outline"></span>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>chrystian</td>
+                <td>1351846</td>
+                <td>3656844</td>
+                <td>contato@gmail.com</td>
+                <td>videira - SC</td>
+                <td class="acoes">
+                  <a href="/visualizar/1" class="btn btn-show">
+                    <span class="mdi mdi-eye"></span>
+                  </a>
+                  <a href="/editar/1" class="btn btn-edit">
+                    <span class="mdi mdi-lead-pencil"></span>
+                  </a>
+                  <a href="/excluir/1" class="btn btn-delete">
+                    <span class="mdi mdi-trash-can-outline"></span>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>chrystian</td>
+                <td>1351846</td>
+                <td>3656844</td>
+                <td>contato@gmail.com</td>
+                <td>videira - SC</td>
+                <td class="acoes">
+                  <a href="/visualizar/1" class="btn btn-show">
+                    <span class="mdi mdi-eye"></span>
+                  </a>
+                  <a href="/editar/1" class="btn btn-edit">
+                    <span class="mdi mdi-lead-pencil"></span>
+                  </a>
+                  <a href="/excluir/1" class="btn btn-delete">
+                    <span class="mdi mdi-trash-can-outline"></span>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>Todos os direitos reservados &copy; 2022</p>
+      </div>
+    </footer>
+  </body>
+</html>
