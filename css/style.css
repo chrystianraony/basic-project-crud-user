@@ -126,9 +126,6 @@ main section#usuarios table td {
   padding: 10px;
 }
 
-main section#usuarios form {
-}
-
 main section#usuarios form div.form-control {
   margin-bottom: 20px;
 }
@@ -157,7 +154,24 @@ body#contacts main section#usuarios .form-control input {
 /* NEW USUÁRUIO */
 
 body#new-usuario main .container {
-  width: 300px;
+  width: 800px;
+}
+
+body#new-usuario main section#usuarios .content {
+  display: flex;
+  flex-direction: column;
+}
+
+body#new-usuario main section#usuarios .form-control {
+  display: flex;
+}
+
+body#new-usuario main section#usuarios .form-control label {
+  flex: 3;
+  margin-right: 15px;
+}
+body#new-usuario main section#usuarios .form-control input {
+  flex: 10;
 }
 
 
