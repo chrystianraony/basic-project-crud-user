@@ -139,7 +139,44 @@ body#contacts main section#usuarios .content {
 
 body#contacts main section#usuarios .content .bloco-esquerdo {
   margin-right: 36px;
+  flex: 1;
 }
+
+body#contacts main section#usuarios .content .bloco-esquerdo .form-control textarea{
+  resize: none;
+  width: 100%;
+
+}
+
+body#contacts main section#usuarios .content .bloco-direito {
+  
+  flex: 1;
+  
+}
+body#contacts main section#usuarios .content .bloco-direito .titulo h2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  
+  
+  
+}
+
+body#contacts main section#usuarios .content .bloco-direito .figura {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex: 1;
+  
+  
+}
+
+body#contacts main section#usuarios .content .bloco-direito .figura img {
+  width: 100px;
+  height: 100px;
+  margin: 10px 10px 10px 10px;
+} 
 
 body#contacts main section#usuarios .form-control {
   display: flex;
