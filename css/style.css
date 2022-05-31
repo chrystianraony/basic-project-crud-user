@@ -126,9 +126,6 @@ main section#usuarios table td {
   padding: 10px;
 }
 
-main section#usuarios form {
-}
-
 main section#usuarios form div.form-control {
   margin-bottom: 20px;
 }
@@ -191,14 +188,65 @@ body#contacts main section#usuarios .form-control input {
   flex: 9;
 }
 
+/* INDEX */
+
+.container h1 {
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+}
+
+section#index .content {
+  display: flex;
+}
+
+section#index .content .bloco-esquerdo {
+  margin-right: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+section#index .content .bloco-direito {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+section#index .content .bloco-direito p {
+  width: 50%;
+  text-align: center;
+}
+
+/* END INDEX */
+
 /* NEW USUÁRUIO */
 
 body#new-usuario main .container {
-  width: 300px;
+  width: 800px;
 }
 
+body#new-usuario main section#usuarios .content {
+  display: flex;
+  flex-direction: column;
+}
+
+body#new-usuario main section#usuarios .form-control {
+  display: flex;
+}
+
+body#new-usuario main section#usuarios .form-control label {
+  flex: 3;
+  margin-right: 15px;
+}
+body#new-usuario main section#usuarios .form-control input {
+  flex: 10;
+}
 
 /* END NEW USUÁRUIO */
+
 
 footer {
   background: #ccc;
