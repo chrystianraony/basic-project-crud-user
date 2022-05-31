@@ -151,6 +151,40 @@ body#contacts main section#usuarios .form-control input {
   flex: 9;
 }
 
+/* INDEX */
+
+.container h1 {
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+}
+
+section#index .content {
+  display: flex;
+}
+
+section#index .content .bloco-esquerdo {
+  margin-right: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+section#index .content .bloco-direito {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+section#index .content .bloco-direito p {
+  width: 50%;
+  text-align: center;
+}
+
+/* END INDEX */
+
 /* NEW USUÁRUIO */
 
 body#new-usuario main .container {
@@ -174,8 +208,8 @@ body#new-usuario main section#usuarios .form-control input {
   flex: 10;
 }
 
-
 /* END NEW USUÁRUIO */
+
 
 footer {
   background: #ccc;
