@@ -1,137 +1,175 @@
 body {
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    font-weight: normal;
-    color: #222222;
-  }
-  
-  .container {
-    width: 1400px;
-    margin: 0 auto;
-    display: block;
-  }
-  
-  .btn {
-    background: #FFF;
-    color: #222222;
-    display: block;
-    text-align: center;
-    border-radius: 4px;
-    padding: 5px;
-    margin-right: 10px;
-    display: inline-block;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: normal;
-  }
-  
-  .btn.btn-new {
-    background: #21f39f;
-    color: #222222;
-    float: right;
-    margin: 0 0 30px 0;
-  }
-  
-  .btn.btn-show {
-    background: #2196F3;
-    color: #FFF;
-  }
-  
-  .btn.btn-edit {
-    background: #f38e21;
-    color: #FFF;
-  }
-  
-  .btn.btn-delete {
-    background: #f34f21;
-    color: #FFF;
-  }
-  
-  header {
-    background: yellow;
-    display: flex;
-  }
-  
-  header .content {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  header div#logo {
-    flex: 1;
-  }
-  
-  header div#logo img {
-    width: 70px;
-    margin: 15px 0;
-  }
-  
-  header nav {
-    flex: 3;
-    font-size: 1.2rem;
-  }
-  
-  header nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 40px 0;
-    display: flex;
-    justify-content: space-around;
-  }
-  
-  header nav ul li a {
-    text-decoration: none;
-    color: #222222;
-    text-transform: uppercase;
-    transition: 0.4s;
-  }
-  
-  header nav ul li a:hover {
-    color: #666;
-    border-bottom: 1px solid #666;
-  }
-  
-  main {
-    display: flex;
-  }
-  
-  main section {
-    flex: 1;
-  }
-  
-  main section#usuarios {
-    margin: 30px 0;
-    font-size: 1rem;
-  }
-  
-  main section#usuarios table {
-    width: 100%;
-    text-align: left;
-    border: 1px solid #222222;
-    border-collapse: collapse;
-  }
-  
-  main section#usuarios table th,
-  main section#usuarios table td {
-    border: 1px solid #222222;
-    padding: 10px;  
-  }
-  
-  main section#usuarios form {
-  
-  }
-  
-  main section#usuarios form div.form-control {
-    margin-bottom: 20px;
-  }
-  
-  footer {
-    background: #CCC;
-    display: flex;
-    height: 100px;
-  }
-  
-  footer p {
-    text-align: center; 
-    margin-top: 40px;
-  }
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  color: #222222;
+}
+
+.container {
+  width: 1400px;
+  margin: 0 auto;
+  display: block;
+}
+
+.btn {
+  background: #fff;
+  color: #222222;
+  display: block;
+  text-align: center;
+  border-radius: 4px;
+  padding: 5px;
+  margin-right: 10px;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.btn.btn-new {
+  background: #21f39f;
+  color: #222222;
+  float: right;
+  margin: 0 0 30px 0;
+}
+.btn.btn-enviar {
+  background: #21f39f;
+  color: #222222;
+  float: right;
+  margin-right: 0;
+}
+
+.btn.btn-show {
+  background: #2196f3;
+  color: #fff;
+}
+
+.btn.btn-edit {
+  background: #f38e21;
+  color: #fff;
+}
+
+.btn.btn-delete {
+  background: #f34f21;
+  color: #fff;
+}
+
+header {
+  background: yellow;
+  display: flex;
+  height: 15vh;
+  min-height: 100px;
+}
+
+header .content {
+  display: flex;
+  flex-direction: row;
+}
+
+header div#logo {
+  flex: 1;
+}
+
+header div#logo img {
+  width: 70px;
+  margin: 15px 0;
+}
+
+header nav {
+  flex: 3;
+  font-size: 1.2rem;
+}
+
+header nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 40px 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: #222222;
+  text-transform: uppercase;
+  transition: 0.4s;
+}
+
+header nav ul li a:hover {
+  color: #666;
+  border-bottom: 1px solid #666;
+}
+
+main {
+  display: flex;
+  min-height: 75vh;
+}
+
+main section {
+  flex: 1;
+}
+
+main section#usuarios {
+  margin: 30px 0;
+  font-size: 1rem;
+}
+
+main section#usuarios table {
+  width: 100%;
+  text-align: left;
+  border: 1px solid #222222;
+  border-collapse: collapse;
+}
+
+main section#usuarios table th,
+main section#usuarios table td {
+  border: 1px solid #222222;
+  padding: 10px;
+}
+
+main section#usuarios form {
+}
+
+main section#usuarios form div.form-control {
+  margin-bottom: 20px;
+}
+
+body#contacts main section#usuarios .content {
+  display: flex;
+}
+
+body#contacts main section#usuarios .content .bloco-esquerdo {
+  margin-right: 36px;
+}
+
+body#contacts main section#usuarios .form-control {
+  display: flex;
+}
+
+body#contacts main section#usuarios .form-control label {
+  flex: 1;
+  margin-right: 20px;
+}
+
+body#contacts main section#usuarios .form-control input {
+  flex: 9;
+}
+
+/* NEW USUÁRUIO */
+
+body#new-usuario main .container {
+  width: 300px;
+}
+
+
+/* END NEW USUÁRUIO */
+
+footer {
+  background: #ccc;
+  display: flex;
+  height: 10vh;
+}
+
+footer p {
+  text-align: center;
+  margin-top: 40px;
+}

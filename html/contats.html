@@ -1,81 +1,107 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="Maurcio N. Ferreira" />
-  <meta name="description" content="PIUAE - é um site de controle de ....." />
-  <meta name="keywords" content="Usuários, Painel de Controle, Dashboard" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Maurcio N. Ferreira" />
+    <meta name="description" content="PIUAE - é um site de controle de ....." />
+    <meta name="keywords" content="Usuários, Painel de Controle, Dashboard" />
 
-  <link rel="stylesheet" href="../css/normalize.css" />
-  <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="stylesheet" href="../css/style.css" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css"
+    />
 
-  <title>PIUAE - Página Inicial</title>
-</head>
-<body>
-  <header>
-    <div class="container">
-      <div class="content">
-        <div id="logo">
-          <a href="index.html">
-            <img src="../img/logo.png" alt="Logo PIUAE" />
-          </a>
-        </div>
-
-        <nav>
-          <ul>
-            <li>
-              <a href="index.html">Home</a>
-            </li>
-            <li>
-              <a href="users.html">Usuários</a>
-            </li>
-            <li>
-              <a href="contats.html">Contato</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <section id="usuarios">
+    <title>PIUAE - Página Inicial</title>
+  </head>
+  <body id="contacts">
+    <header>
       <div class="container">
-        <h2>
-          Entre em contato conosco pelo formulário abaixo.
-        </h2>
-        <form action="#">
-            <div class="form-control">
-              <label for="nome">Nome:</label>
-              <input type="text" name="nome" id="nome" required/>
-            </div>
-            <div class="form-control">
-                <label for="email">E-mail</label>
-                <input type="text" name="email" id="email" required>
-            </div>
-            <div class="form-control">
-                <label for="assunto">Assunto</label>
-                <input type="text" name="assunto" id="assunto" required>
-            </div>
+        <div class="content">
+          <div id="logo">
+            <a href="index.html">
+              <img src="../img/logo.png" alt="Logo PIUAE" />
+            </a>
+          </div>
 
-        
+          <nav>
+            <ul>
+              <li>
+                <a href="index.html">Home</a>
+              </li>
+              <li>
+                <a href="users.html">Usuários</a>
+              </li>
+              <li>
+                <a href="contats.html">Contato</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
-    </section>
-  </main>
+    </header>
 
-  <footer>
-    <div class="container">
-      <p>Todos os direitos reservados &copy; 2022</p>      
-    </div>
-  </footer>
-  
-</body>
+    <main>
+      <section id="usuarios">
+        <div class="container">
+          <div class="content">
+            <div class="bloco-esquerdo">
+              <h2>Entre em contato conosco pelo formulário abaixo.</h2>
+              <form action="#">
+                <div class="form-control">
+                  <label for="nome">Nome:</label>
+                  <input type="text" name="nome" id="nome" required />
+                </div>
+                <div class="form-control">
+                  <label for="email">E-mail:</label>
+                  <input type="email" name="email" id="email" required />
+                </div>
+                <div class="form-control">
+                  <label for="assunto">Assunto:</label>
+                  <input type="text" name="assunto" id="assunto" required />
+                </div>
+                <div class="form-control">
+                  <textarea
+                    name="assunto"
+                    id="comentario"
+                    cols="80"
+                    rows="10"
+                    style="resize: none"
+                  ></textarea>
+                </div>
+                <div>
+                  <button type="submit" class="btn btn-enviar">
+                    <span class="mdi mdi-send"></span>
+                    Enviar Mensagem
+                  </a>
+                </div>
+              </form>
+            </div>
+
+            <div class="bloco-direito">
+              <h2>DO LADO DIREITO</h2>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>Todos os direitos reservados &copy; 2022</p>
+      </div>
+    </footer>
+  </body>
 </html>
