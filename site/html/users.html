@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Codtry" />
+    <meta name="description" content="PIUAE - é um site de controle de ....." />
+    <meta name="keywords" content="Usuários, Painel de Controle, Dashboard" />
+
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css"
+    />
+    <script>
+      function excluirUsuario(event, id){
+        event.preventDefault();
+
+        const data = {
+          id: id
+        }
+
+        console.log(data)
+  
+      fetch('http://localhost:8080/users/:id',{
+        method: 'delete',
+        headers:{
+          'Content-Type':'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+        .then(res => res.json())
+        .then(data => {
+          console.log('Success:', data);
+        })
+        .catch((error)=>{
+          console.log('Error:', error);
+        })
+      }
+     </script>
+  
+
+    <title>PIUAE - Página Inicial</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="content">
+          <div id="logo">
+            <a href="index.html">
+              <img src="../img/logo.png" alt="Logo PIUAE" />
+            </a>
+          </div>
+
+          <nav>
+            <ul>
+              <li>
+                <a href="index.html">Home</a>
+              </li>
+              <li>
+                <a href="users.html">Usuário</a>
+              </li>
+              <li>
+                <a href="contact.html">Contato</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="usuarios">
+        <div class="container">
+          <h2>
+            Lista de Usuários
+            <a href="new.html" class="btn btn-new">
+              <span class="mdi mdi-account-multiple-plus"></span>
+              Criar Usuário
+            </a>
+          </h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>RG</th>
+                <th>E-mail</th>
+                <th>Cidade</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="tabelaTeste">
+              <script>
+                let table = document.querySelector("tbody#tabelaTeste");
+
+                fetch("http://localhost:8080/users").then((response) => {
+                  response.json().then((users) => {
+                    users.forEach((user) => {
+                      let tr = document.createElement("tr");
+                      tr.innerHTML = `<td>${user.nome}</td>
+                           <td>${user.cpf}</td>
+                           <td>${user.rg}</td>
+                           <td>${user.email}</td>
+                           <td>${user.cidade}</td>
+                           <td class="acoes">
+                              <a href="/visualizar/1" id="visualizar" class="btn btn-show">
+                                <span class="mdi mdi-eye"></span>
+                              </a>
+                              <a href="edit.html" id="editar" class="btn btn-edit">
+                                <span class="mdi mdi-lead-pencil"></span>
+                              </a>
+                              <button class="btn btn-delete" type="button" onclick="excluirUsuario(event, ${user.id})">
+                                <span class="mdi mdi-trash-can-outline"></span>
+                              </button>
+                          
+                            </td>`;
+
+                      table.appendChild(tr);
+                    });
+                  });
+                });
+              </script>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>Todos os direitos reservados &copy; 2022</p>
+      </div>
+    </footer>
+  </body>
+</html>
