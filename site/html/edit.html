@@ -22,6 +22,37 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.js" integrity="sha512-zL6Mk/gs8FtX6ZaN+ObOH/biB8Phx217vhCxRLzNdfHX2JlPgbmVuu948wqLYxY+QqgaLnbIbg6g5J7zszY4dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <title>PIUAE - Página Inicial</title>
+  <script>
+    function atualizarUsuario(event){
+      event.preventDefault();
+
+      const data = {
+        nome: document.getElementById("nome").value,
+        cpf: document.getElementById("cpf").value,
+        rg: document.getElementById("rg").value,
+        email: document.getElementById("email").value,
+        cidade: document.getElementById("cidade").value,
+      }
+
+      console.log(data)
+
+    fetch(`http://localhost:8080/users/${params.id}`,{
+      method: 'put',
+      headers:{
+        'Content-Type':'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log('Success:', data);
+      })
+      .catch((error)=>{
+        console.log('Error:', error);
+      })
+    }
+  </script>
+
 </head>
 <body id="new-usuario">
   <header>
@@ -78,7 +109,7 @@
               <label for="text">Cidade:</label>
               <input type="text" name="cidade" id="cidade" required />
             </div>
-              <button class="btn btn-enviar" type="submit">
+              <button class="btn btn-enviar" type="submit" onclick="atualizarUsuario(event)">
                 Finalizar Edição
               </button>
             </div>
