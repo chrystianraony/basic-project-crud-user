@@ -20,15 +20,18 @@
   <title>PIUAE - Página Inicial</title>
 
   <script>
-    function cadastrarUsuario(){
-      const data = {
+    function cadastrarUsuario(event){
+      event.preventDefault();
 
+      const data = {
         nome: document.getElementById("nome").value,
         cpf: document.getElementById("cpf").value,
         rg: document.getElementById("rg").value,
         email: document.getElementById("email").value,
         cidade: document.getElementById("cidade").value,
       }
+
+      console.log(data)
 
     fetch('http://localhost:8080/users',{
       method: 'POST',
@@ -39,7 +42,7 @@
     })
       .then(res => res.json())
       .then(data => {
-        console.log('Sucess:', data);
+        console.log('Success:', data);
       })
       .catch((error)=>{
         console.log('Error:', error);
@@ -83,7 +86,7 @@
           <h2>
             Criar Usuário
           </h2>
-          <form id="newForm">
+          <form id="newForm" action="#">
             <div class="form-control">
               <label for="nome">Nome:</label>
               <input type="text" name="nome" id="nome" required />
@@ -104,7 +107,7 @@
               <label for="text">Cidade:</label>
               <input type="text" name="cidade" id="cidade" required />
             </div>
-              <button class="btn btn-enviar" type="submit" onclick="cadastrarUsuario()">
+              <button class="btn btn-enviar" type="submit" onclick="cadastrarUsuario(event)">
                 Cadastrar Usuário
               </button>
             </div>

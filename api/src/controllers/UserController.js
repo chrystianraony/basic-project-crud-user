@@ -8,6 +8,7 @@ module.exports = {
   async create(req, res, next) {
     try {
       const { nome, cpf, rg, email, cidade } = req.body;
+
       await knex("users").insert({
         nome,
         cpf,
