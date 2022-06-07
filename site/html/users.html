@@ -43,7 +43,6 @@
           confirmButtonText: 'Excluir',
           denyButtonText: `Cancelar`,
         }).then((result) => {
-          /* Read more about isConfirmed, isDenied below */
           if (result.isConfirmed) {
             fetch('http://localhost:8080/users/:id',{
               method: 'delete',
