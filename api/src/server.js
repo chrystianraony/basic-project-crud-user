@@ -36,14 +36,3 @@ app.listen(port, () => {
 });
 
 
-app.get('/users/:id',function(req,res){
-  knex('users').where('id', req.params.id)
-      .del()
-      .then(function(){
-        knex.select()
-          .from('users')
-          .then(function(users){
-            res.send(users);
-          })
-        });
-});
