@@ -8,6 +8,7 @@ module.exports = {
   async create(req, res, next) {
     try {
       const { nome, cpf, rg, email, cidade } = req.body;
+
       await knex("users").insert({
         nome,
         cpf,
@@ -15,57 +16,47 @@ module.exports = {
         email,
         cidade,
       });
-      return res.status(201).send({message: "Usuário Criado"}); //201 eh que foi adicionado
+      return res.status(201).send({ message: "Usuário Criado" }); //201 eh que foi adicionado
     } catch (error) {
       next(error);
     }
   },
   async update(req, res, next) {
     try {
-      const { nome } = req.body
-      const { id } = req.params
+      const { nome } = req.body;
+      const { id } = req.params;
 
-      await knex("users")
-      .update({ nome })
-      .where( "id", id )
+      await knex("users").update({ nome }).where("id", id);
 
-      return res.send({message: "Usuário Atualizado com Sucesso"})         //send significa que esta tudo ok 
-
+      return res.send({ message: "Usuário Atualizado com Sucesso" }); //send significa que esta tudo ok
     } catch (error) {
       next(error);
     }
   },
-  async delete(req, res, next){
-      try {
-          const { id } = req.body
+  async delete(req, res, next) {
+    try {
+      const { id } = req.body;
 
-          await knex('users')
-          .where({ id: id })
-          .del()
-        
-          return res.send({message: "Usuário Deletado"})
-      } catch (error) {
-          next(error)
-      }
+      await knex("users").where({ id: id }).del();
+
+      return res.send({ message: "Usuário Deletado" });
+    } catch (error) {
+      next(error);
+    }
   },
   async get(req, res, next) {
     try {
-      const { id } = req.body
+      const { id } = req.params;
 
-      await knex('users').select({
-        id: 'id',
-        nome: 'nome',
-        cpf: 'cpf',
-        rg: 'rg',
-        email: 'email',
-        cidade: 'cidade'
-      })
-        .where({ id: id })
+      await knex("users")
+        .where("id", id)
+        .select("id", "nome", "cpf", "rg", "email", "cidade")
+        .first()
         .then((user) => {
           return res.json(user);
-        })
-    } catch(error) {
+        });
+    } catch (error) {
       next(error);
     }
-  }
+  },
 };

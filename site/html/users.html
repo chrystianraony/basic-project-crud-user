@@ -21,7 +21,12 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.all.js" integrity="sha512-L0pIRrYrKsfCidtpWhWSrrbyAcSfrvMaezfwnNGns7c7MuToIEZRabX+WmZ6+Dzn8ESNsHz7t/k6vF8aM1fVXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.js" integrity="sha512-zL6Mk/gs8FtX6ZaN+ObOH/biB8Phx217vhCxRLzNdfHX2JlPgbmVuu948wqLYxY+QqgaLnbIbg6g5J7zszY4dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script>
+      
       function excluirUsuario(event, id){
         event.preventDefault();
 
@@ -30,22 +35,34 @@
         }
 
         console.log(data)
+
+        Swal.fire({
+          title: 'Deletar usuário?',
+          showDenyButton: true,
+          showCancelButton: false,
+          confirmButtonText: 'Excluir',
+          denyButtonText: `Cancelar`,
+        }).then((result) => {
+          if (result.isConfirmed) {
+            fetch('http://localhost:8080/users/:id',{
+              method: 'delete',
+              headers:{
+                'Content-Type':'application/json',
+              },
+              body: JSON.stringify(data),
+            })
+              .then(res => res.json())
+              .then(data => {
+                Swal.fire('Excluido!', '', 'success')
+                console.log('Success:', data);
+              })
+              .catch((error)=>{
+                console.log('Error:', error);
+              })
+          }
+        })
+        }
   
-      fetch('http://localhost:8080/users/:id',{
-        method: 'delete',
-        headers:{
-          'Content-Type':'application/json',
-        },
-        body: JSON.stringify(data),
-      })
-        .then(res => res.json())
-        .then(data => {
-          console.log('Success:', data);
-        })
-        .catch((error)=>{
-          console.log('Error:', error);
-        })
-      }
      </script>
   
 
@@ -116,7 +133,7 @@
                               <a href="/visualizar/1" id="visualizar" class="btn btn-show">
                                 <span class="mdi mdi-eye"></span>
                               </a>
-                              <a href="edit.html" id="editar" class="btn btn-edit">
+                              <a href="edit.html?id=${user.id}" id="editar" class="btn btn-edit">
                                 <span class="mdi mdi-lead-pencil"></span>
                               </a>
                               <button class="btn btn-delete" type="button" onclick="excluirUsuario(event, ${user.id})">
