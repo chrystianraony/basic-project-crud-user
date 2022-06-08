@@ -39,7 +39,7 @@ module.exports = {
   },
   async delete(req, res, next) {
     try {
-      const { id } = req.body;
+      const { id } = req.params;
 
       await knex("users").where({ id: id }).del();
 
