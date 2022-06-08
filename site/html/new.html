@@ -17,6 +17,10 @@
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.all.js" integrity="sha512-L0pIRrYrKsfCidtpWhWSrrbyAcSfrvMaezfwnNGns7c7MuToIEZRabX+WmZ6+Dzn8ESNsHz7t/k6vF8aM1fVXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.js" integrity="sha512-zL6Mk/gs8FtX6ZaN+ObOH/biB8Phx217vhCxRLzNdfHX2JlPgbmVuu948wqLYxY+QqgaLnbIbg6g5J7zszY4dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   <title>PIUAE - Página Inicial</title>
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -83,7 +87,7 @@
               <a href="index.html">Home</a>
             </li>
             <li>
-              <a href="users.html">Usuário</a>
+              <a href="users.html">Usuários</a>
             </li>
             <li>
               <a href="contact.html">Contato</a>
@@ -137,6 +141,43 @@
       <p>Todos os direitos reservados &copy; 2022</p>      
     </div>
   </footer>
-  
+  <script>
+    function cadastrarUsuario(event){
+      event.preventDefault();
+
+      const data = {
+        nome: document.getElementById("nome").value,
+        cpf: document.getElementById("cpf").value,
+        rg: document.getElementById("rg").value,
+        email: document.getElementById("email").value,
+        cidade: document.getElementById("cidade").value,
+      }
+
+      console.log(data)
+
+    fetch('http://localhost:8080/users',{
+      method: 'POST',
+      headers:{
+        'Content-Type':'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then(res => res.json())
+      .then(data => {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Usuário Cadastrado',
+          showConfirmButton: false,
+          timer: 1500,
+        })
+        console.log('Success:', data);
+        window.location.href = '/site/html/users.html'
+      })
+      .catch((error)=>{
+        console.log('Error:', error);
+      })
+    }
+   </script>
 </body>
 </html>
