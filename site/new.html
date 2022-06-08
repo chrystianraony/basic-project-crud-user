@@ -8,8 +8,8 @@
   <meta name="description" content="PIUAE - é um site de controle de ....." />
   <meta name="keywords" content="Usuários, Painel de Controle, Dashboard" />
 
-  <link rel="stylesheet" href="../css/normalize.css" />
-  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="/css/normalize.css" />
+  <link rel="stylesheet" href="/css/style.css" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,12 +50,14 @@
         // manipula o sucesso da requisição
         console.log(response);
 
-        Swal.fire(
-          'Usuário criado com sucesso!',
-          '',
-          'success'
-        ).then((result) => {
-          window.location = "/html/users.html"
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Usuário Cadastrado',
+          showConfirmButton: false,
+          timer: 1500
+        }).then((result) => {
+          window.location = "/users.html"
         })
       })
       .catch(function (error) {
@@ -76,21 +78,21 @@
     <div class="container">
       <div class="content">
         <div id="logo">
-          <a href="index.html">
-            <img src="../img/logo.png" alt="Logo PIUAE" />
+          <a href="/index.html">
+            <img src="/img/logo.png" alt="Logo PIUAE" />
           </a>
         </div>
 
         <nav>
           <ul>
             <li>
-              <a href="index.html">Home</a>
+              <a href="/index.html">Home</a>
             </li>
             <li>
-              <a href="users.html">Usuários</a>
+              <a href="/users.html">Usuários</a>
             </li>
             <li>
-              <a href="contact.html">Contato</a>
+              <a href="/contact.html">Contato</a>
             </li>
           </ul>
         </nav>
@@ -141,43 +143,5 @@
       <p>Todos os direitos reservados &copy; 2022</p>      
     </div>
   </footer>
-  <script>
-    function cadastrarUsuario(event){
-      event.preventDefault();
-
-      const data = {
-        nome: document.getElementById("nome").value,
-        cpf: document.getElementById("cpf").value,
-        rg: document.getElementById("rg").value,
-        email: document.getElementById("email").value,
-        cidade: document.getElementById("cidade").value,
-      }
-
-      console.log(data)
-
-    fetch('http://localhost:8080/users',{
-      method: 'POST',
-      headers:{
-        'Content-Type':'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-      .then(res => res.json())
-      .then(data => {
-        Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Usuário Cadastrado',
-          showConfirmButton: false,
-          timer: 1500,
-        })
-        console.log('Success:', data);
-        window.location.href = '/site/html/users.html'
-      })
-      .catch((error)=>{
-        console.log('Error:', error);
-      })
-    }
-   </script>
 </body>
 </html>

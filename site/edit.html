@@ -9,8 +9,8 @@
   <meta name="description" content="PIUAE - é um site de controle de ....." />
   <meta name="keywords" content="Usuários, Painel de Controle, Dashboard" />
 
-  <link rel="stylesheet" href="../css/normalize.css" />
-  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="/css/normalize.css" />
+  <link rel="stylesheet" href="/css/style.css" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,21 +38,21 @@
     <div class="container">
       <div class="content">
         <div id="logo">
-          <a href="index.html">
-            <img src="../img/logo.png" alt="Logo PIUAE" />
+          <a href="/index.html">
+            <img src="/img/logo.png" alt="Logo PIUAE" />
           </a>
         </div>
 
         <nav>
           <ul>
             <li>
-              <a href="index.html">Home</a>
+              <a href="/index.html">Home</a>
             </li>
             <li>
-              <a href="users.html">Usuários</a>
+              <a href="/users.html">Usuários</a>
             </li>
             <li>
-              <a href="contact.html">Contato</a>
+              <a href="/contact.html">Contato</a>
             </li>
           </ul>
         </nav>
@@ -88,7 +88,7 @@
               <label for="text">Cidade:</label>
               <input type="text" name="cidade" id="cidade" required />
             </div>
-            <button class="btn btn-enviar" type="submit" onclick="atualizarUsuario(event)">
+            <button class="btn btn-enviar" type="button" onclick="atualizarUsuario(event)">
               Finalizar Edição
             </button>
         </div>
@@ -142,11 +142,11 @@ function atualizarUsuario(event) {
                 timer: 1500
               })
               console.log('Success:', data);
-              window.location.href = '/site/html/users.html';
+              window.location.href = '/users.html';
             })
             .catch((error) => {
               console.log('Error:', error);
-              window.location.href = '/site/html/users.html';
+              window.location.href = '/users.html';
             })
         }
       })
@@ -178,7 +178,7 @@ function atualizarUsuario(event) {
             icon: 'error',
             confirmButtonText: 'Fechar'
           }).then((result) => {
-            window.location.href = '/site/html/users.html';
+            window.location.href = '/users.html';
           })
         })
 

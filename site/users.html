@@ -8,8 +8,8 @@
     <meta name="description" content="PIUAE - é um site de controle de ....." />
     <meta name="keywords" content="Usuários, Painel de Controle, Dashboard" />
 
-    <link rel="stylesheet" href="../css/normalize.css" />
-    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -55,7 +55,7 @@
               .then(res => res.json())
               .then(data => {
                 Swal.fire('Excluido!', '', 'success').then((result) => {
-                  window.location = "/html/users.html"
+                  window.location = "/users.html"
                 })
               })
               .catch((error)=>{
