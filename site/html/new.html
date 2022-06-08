@@ -19,8 +19,15 @@
 
   <title>PIUAE - Página Inicial</title>
 
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.all.js" integrity="sha512-L0pIRrYrKsfCidtpWhWSrrbyAcSfrvMaezfwnNGns7c7MuToIEZRabX+WmZ6+Dzn8ESNsHz7t/k6vF8aM1fVXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.js" integrity="sha512-zL6Mk/gs8FtX6ZaN+ObOH/biB8Phx217vhCxRLzNdfHX2JlPgbmVuu948wqLYxY+QqgaLnbIbg6g5J7zszY4dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   <script>
+    
     function cadastrarUsuario(event){
+      console.log(event)
       event.preventDefault();
 
       const data = {
@@ -33,21 +40,29 @@
 
       console.log(data)
 
-    fetch('http://localhost:8080/users',{
-      method: 'POST',
-      headers:{
-        'Content-Type':'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log('Success:', data);
+
+      axios.post('http://localhost:8080/users', data)
+      .then(function (response) {
+        // manipula o sucesso da requisição
+        console.log(response);
+
+        Swal.fire(
+          'Usuário criado com sucesso!',
+          '',
+          'success'
+        ).then((result) => {
+          window.location = "/html/users.html"
+        })
       })
-      .catch((error)=>{
-        console.log('Error:', error);
+      .catch(function (error) {
+        // manipula erros da requisição
+        console.error(error);
       })
+      .then(function () {
+        // sempre será executado
+      });
     }
+    
    </script>
 
 
@@ -107,7 +122,7 @@
               <label for="text">Cidade:</label>
               <input type="text" name="cidade" id="cidade" required />
             </div>
-              <button class="btn btn-enviar" type="submit" onclick="cadastrarUsuario(event)">
+              <button class="btn btn-enviar" type="button" onClick="return cadastrarUsuario(event)">
                 Cadastrar Usuário
               </button>
             </div>

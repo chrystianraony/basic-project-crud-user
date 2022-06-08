@@ -15,18 +15,22 @@ module.exports = {
         rg,
         email,
         cidade,
-      });
+      })
       return res.status(201).send({ message: "Usuário Criado" }); //201 eh que foi adicionado
     } catch (error) {
-      next(error);
+      console.log(error)
+      if(error.errno === 19) {
+        return res.status(401).send({message: "Email ja cadastrado em outro usuario"})        
+     }
     }
   },
   async update(req, res, next) {
     try {
-      const { nome } = req.body;
+      const { nome, cpf, rg, email, cidade } = req.body;
       const { id } = req.params;
-
-      await knex("users").update({ nome }).where("id", id);
+      
+      await knex("users").update({ nome, cpf, rg, email, cidade }).where("id", id);
+      // await knex("users").update({ cpf }).where("id", id);
 
       return res.send({ message: "Usuário Atualizado com Sucesso" }); //send significa que esta tudo ok
     } catch (error) {

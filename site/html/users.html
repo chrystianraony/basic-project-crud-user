@@ -28,6 +28,7 @@
     <script>
       
       function excluirUsuario(event, id){
+        console.log(event)
         event.preventDefault();
 
         const data = {
@@ -53,8 +54,9 @@
             })
               .then(res => res.json())
               .then(data => {
-                Swal.fire('Excluido!', '', 'success')
-                console.log('Success:', data);
+                Swal.fire('Excluido!', '', 'success').then((result) => {
+                  window.location = "/html/users.html"
+                })
               })
               .catch((error)=>{
                 console.log('Error:', error);
