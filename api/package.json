@@ -15,7 +15,7 @@
     "knex": "^2.1.0",
     "python": "^0.0.4",
     "python-shell": "^3.0.1",
-    "sqlite3": "^5.0.8"
+    "sqlite3": "5.0.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.16"

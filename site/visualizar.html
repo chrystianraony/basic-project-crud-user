@@ -65,32 +65,29 @@
       <div class="container">
         <div class="content">
           <h2>
-            Edição do Usuário
+            Dados do Usuário
           </h2>
-          <form action="#">
+          <form action="#" class="visualizar">
             <div class="form-control">
               <label for="nome">Nome:</label>
-              <input type="text" name="nome" id="nome" required />
+              <input type="text" name="nome" id="nome" readonly="readonly"></input>
             </div>
             <div class="form-control">
               <label>CPF:</label>
-              <input type="text" name="cpf" id="cpf" required />
+              <input style="cursor:default" type="text" name="cpf" id="cpf" readonly="readonly"  />
             </div>
             <div class="form-control">
               <label>RG:</label>
-              <input type="text" name="rg" id="rg" required />
+              <input style="cursor:default" type="text" name="rg" id="rg" readonly="readonly"  />
             </div>
             <div class="form-control">
               <label for="email">E-mail:</label>
-              <input type="email" name="email" id="email" required />
+              <input style="cursor:default" type="email" name="email" id="email" readonly="readonly"  />
             </div>
             <div class="form-control">
               <label for="text">Cidade:</label>
-              <input type="text" name="cidade" id="cidade" required />
+              <input style="cursor:default" type="text" name="cidade" id="cidade" readonly="readonly"  />
             </div>
-            <button class="btn btn-enviar" type="button" onclick="atualizarUsuario(event)">
-              Finalizar Edição
-            </button>
         </div>
         </form>
       </div>
@@ -105,52 +102,6 @@
   </footer>
 
   <script>
-
-function atualizarUsuario(event) {
-      event.preventDefault();
-
-      const data = {
-        nome: document.getElementById("nome").value,
-        cpf: document.getElementById("cpf").value,
-        rg: document.getElementById("rg").value,
-        email: document.getElementById("email").value,
-        cidade: document.getElementById("cidade").value,
-      }
-
-      console.log(data)
-      Swal.fire({
-        title: 'Atualizar Usuário?',
-        showDenyButton: true,
-        showCancelButton: false,
-        confirmButtonText: 'Atualizar',
-        denyButtonText: `Cancelar`,
-      }).then((result) => {
-        if (result.isConfirmed) {
-          fetch(`http://localhost:8080/users/${params.id}`, {
-            method: 'put',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-          })
-            .then(async data => {
-              await Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: 'Dados atualizados',
-                showConfirmButton: false,
-                timer: 1500
-              })
-              console.log('Success:', data);
-              window.location.href = '/users.html';
-            })
-            .catch((error) => {
-              console.log('Error:', error);
-              window.location.href = '/users.html';
-            })
-        }
-      })
-}
 
     const params = new Proxy(new URLSearchParams(window.location.search), {
       get: (searchParams, prop) => searchParams.get(prop),

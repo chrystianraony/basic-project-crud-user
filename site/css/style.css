@@ -57,7 +57,7 @@ header {
   background: yellow;
   display: flex;
   height: 10vh;
-  min-height: 100px;
+  min-height: 90px;
 }
 
 header .content {
@@ -258,3 +258,13 @@ footer p {
   text-align: center;
   margin-top: 40px;
 }
+
+
+/* VISUALIZAR */
+
+form.visualizar input {
+  cursor:default; 
+  border: none;
+}
+
+/* END VISUALIZAR */
