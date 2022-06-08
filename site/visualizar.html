@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Codtry" />
+  <meta name="description" content="PIUAE - é um site de controle de ....." />
+  <meta name="keywords" content="Usuários, Painel de Controle, Dashboard" />
+
+  <link rel="stylesheet" href="/css/normalize.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.all.js"
+    integrity="sha512-L0pIRrYrKsfCidtpWhWSrrbyAcSfrvMaezfwnNGns7c7MuToIEZRabX+WmZ6+Dzn8ESNsHz7t/k6vF8aM1fVXg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.js"
+    integrity="sha512-zL6Mk/gs8FtX6ZaN+ObOH/biB8Phx217vhCxRLzNdfHX2JlPgbmVuu948wqLYxY+QqgaLnbIbg6g5J7zszY4dg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <title>PIUAE - Página Inicial</title>
+  <script>
+    
+  </script>
+
+</head>
+
+<body id="new-usuario">
+  <header>
+    <div class="container">
+      <div class="content">
+        <div id="logo">
+          <a href="/index.html">
+            <img src="/img/logo.png" alt="Logo PIUAE" />
+          </a>
+        </div>
+
+        <nav>
+          <ul>
+            <li>
+              <a href="/index.html">Home</a>
+            </li>
+            <li>
+              <a href="/users.html">Usuários</a>
+            </li>
+            <li>
+              <a href="/contact.html">Contato</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="usuarios">
+      <div class="container">
+        <div class="content">
+          <h2>
+            Dados do Usuário
+          </h2>
+          <form action="#" class="visualizar">
+            <div class="form-control">
+              <label for="nome">Nome:</label>
+              <input type="text" name="nome" id="nome" readonly="readonly"></input>
+            </div>
+            <div class="form-control">
+              <label>CPF:</label>
+              <input style="cursor:default" type="text" name="cpf" id="cpf" readonly="readonly"  />
+            </div>
+            <div class="form-control">
+              <label>RG:</label>
+              <input style="cursor:default" type="text" name="rg" id="rg" readonly="readonly"  />
+            </div>
+            <div class="form-control">
+              <label for="email">E-mail:</label>
+              <input style="cursor:default" type="email" name="email" id="email" readonly="readonly"  />
+            </div>
+            <div class="form-control">
+              <label for="text">Cidade:</label>
+              <input style="cursor:default" type="text" name="cidade" id="cidade" readonly="readonly"  />
+            </div>
+        </div>
+        </form>
+      </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Todos os direitos reservados &copy; 2022</p>
+    </div>
+  </footer>
+
+  <script>
+
+    const params = new Proxy(new URLSearchParams(window.location.search), {
+      get: (searchParams, prop) => searchParams.get(prop),
+    });
+
+      fetch(`http://localhost:8080/users/${params.id}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      })
+        .then(res => res.json())
+        .then(data => {
+          document.querySelector('input#nome').value = data.nome
+          document.querySelector('input#cpf').value = data.cpf
+          document.querySelector('input#rg').value = data.rg
+          document.querySelector('input#email').value = data.email
+          document.querySelector('input#cidade').value = data.cidade
+
+        })
+        .catch((error) => {
+          Swal.fire({
+            title: 'Erro!',
+            text: 'Não foi possível encontrar o usuário fornecido.',
+            icon: 'error',
+            confirmButtonText: 'Fechar'
+          }).then((result) => {
+            window.location.href = '/users.html';
+          })
+        })
+  </script>
+  
+</body>
+
+</html>
