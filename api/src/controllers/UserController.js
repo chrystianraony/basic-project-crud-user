@@ -23,10 +23,14 @@ module.exports = {
   },
   async update(req, res, next) {
     try {
-      const { nome } = req.body;
       const { id } = req.params;
+      const { nome } = req.body;
+      const { cpf } = req.body;
+      const { rg } = req.body;
+      const { email } = req.body;
+      const { cidade } = req.body;
 
-      await knex("users").update({ nome }).where("id", id);
+      await knex("users").update({ nome, cpf, rg, email, cidade }).where("id", id);
 
       return res.send({ message: "Usuário Atualizado com Sucesso" }); //send significa que esta tudo ok
     } catch (error) {
