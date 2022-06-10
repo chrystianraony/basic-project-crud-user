@@ -128,27 +128,22 @@ function atualizarUsuario(event) {
         denyButtonText: `Cancelar`,
       }).then((result) => {
         if (result.isConfirmed) {
-          fetch(`http://localhost:8080/users/${params.id}`, {
-            method: 'put',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-          })
-            .then(async data => {
+          axios.put(`http://localhost:8080/users/${params.id}`, data)
+            .then(async function (response) {
               await Swal.fire({
                 position: 'center',
                 icon: 'success',
                 title: 'Dados atualizados',
                 showConfirmButton: false,
                 timer: 1500
-              })
+            })
               console.log('Success:', data);
               window.location.href = '/users.html';
             })
-            .catch((error) => {
+            .catch(function (error) {
               console.log('Error:', error);
               window.location.href = '/users.html';
+
             })
         }
       })
