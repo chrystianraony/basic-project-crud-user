@@ -29,22 +29,93 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.js" integrity="sha512-zL6Mk/gs8FtX6ZaN+ObOH/biB8Phx217vhCxRLzNdfHX2JlPgbmVuu948wqLYxY+QqgaLnbIbg6g5J7zszY4dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script>
+
+    function validarFormulario(campos, data) {
+
+      let valido = true;
+
+      if (data.nome == "") {
+        campos.nome.parentElement.classList.add("required")
+        valido = false;
+      } else {
+        campos.nome.parentElement.classList.remove("required")
+      }
+
+      if (data.cpf == "") {
+        campos.cpf.parentElement.classList.add("required")
+        valido = false;
+      } else if (! /\d{3}\.?\d{3}\.?\d{3}-?\d{2}/.test(data.cpf)) {
+        Swal.fire({
+            title: 'Erro!',
+            text: 'CPF inválido.',
+            icon: 'error',
+            confirmButtonText: 'Fechar'
+        })
+        valido = false;
+      } else {
+        campos.cpf.parentElement.classList.remove("required")
+      }
+
+      if (data.rg == "") {
+        campos.rg.parentElement.classList.add("required")
+        valido = false;
+      } else {
+        campos.rg.parentElement.classList.remove("required")
+      }
+
+      if (data.email == "") {
+        campos.email.parentElement.classList.add("required")
+        valido = false;
+      } else if (! /\S+@\S+\.\S+/.test(data.email)) {
+        Swal.fire({
+            title: 'Erro!',
+            text: 'Email inválido.',
+            icon: 'error',
+            confirmButtonText: 'Fechar'
+        })
+        valido = false;
+      } else {
+        campos.email.parentElement.classList.remove("required")
+      }
+
+      if (data.cidade == "") {
+        campos.cidade.parentElement.classList.add("required")
+        valido = false;
+      } else {
+        campos.cidade.parentElement.classList.remove("required")
+      }
+
+      return valido;
+    }
+
     
     function cadastrarUsuario(event){
       console.log(event)
       event.preventDefault();
 
-      const data = {
-        nome: document.getElementById("nome").value,
-        cpf: document.getElementById("cpf").value,
-        rg: document.getElementById("rg").value,
-        email: document.getElementById("email").value,
-        cidade: document.getElementById("cidade").value,
+      const campos = {
+        nome: document.getElementById("nome"),
+        cpf: document.getElementById("cpf"),
+        rg: document.getElementById("rg"),
+        email: document.getElementById("email"),
+        cidade: document.getElementById("cidade"),
       }
 
-      console.log(data)
+
+      const data = {
+        nome: campos.nome.value.trim(),
+        cpf: campos.cpf.value.trim(),
+        rg: campos.rg.value.trim(),
+        email: campos.email.value.trim(),
+        cidade: campos.cidade.value.trim(),
+      }
 
 
+      if (!validarFormulario(campos, data)) {
+        return
+      }
+
+      
       axios.post('http://localhost:8080/users', data)
       .then(function (response) {
         // manipula o sucesso da requisição
@@ -67,8 +138,11 @@
       .then(function () {
         // sempre será executado
       });
+      
+
+
+      
     }
-    
    </script>
 
 
@@ -109,24 +183,28 @@
           </h2>
           <form id="newForm" action="#">
             <div class="form-control">
-              <label for="nome">Nome:</label>
+              <label for="nome">Nome*:</label>
               <input type="text" name="nome" id="nome" required />
             </div>
             <div class="form-control">
-              <label>CPF:</label>
-              <input type="text" name="cpf" id="cpf"  required />
+              <label>CPF*:</label>
+              <input type="text" name="cpf" id="cpf" 
+              pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"  required />
             </div>
             <div class="form-control">
-              <label>RG:</label>
+              <label>RG*:</label>
               <input type="text" name="rg" id="rg"  required />
             </div>
             <div class="form-control">
-              <label for="email">E-mail:</label>
+              <label for="email">E-mail*:</label>
               <input type="email" name="email" id="email" required />
             </div>
             <div class="form-control">
-              <label for="text">Cidade:</label>
+              <label for="text">Cidade*:</label>
               <input type="text" name="cidade" id="cidade" required />
+            </div>
+            <div class="form-control">
+              <p>(*) - Campos Obrigatórios</p>
             </div>
               <button class="btn btn-enviar" type="button" onClick="return cadastrarUsuario(event)">
                 Cadastrar Usuário
