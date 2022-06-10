@@ -118,12 +118,13 @@
             <tbody id="tabelaTeste">
               <script>
                 let table = document.querySelector("tbody#tabelaTeste");
-
-                fetch("http://localhost:8080/users").then((response) => {
-                  response.json().then((users) => {
-                    users.forEach((user) => {
-                      let tr = document.createElement("tr");
-                      tr.innerHTML = `<td>${user.nome}</td>
+                
+                axios.get("http://localhost:8080/users")
+                  .then((response) => {
+                    users = response.data
+                      users.forEach((user) => {
+                        let tr = document.createElement("tr");
+                        tr.innerHTML = `<td>${user.nome}</td>
                            <td>${user.cpf}</td>
                            <td>${user.rg}</td>
                            <td>${user.email}</td>
@@ -142,9 +143,8 @@
                             </td>`;
 
                       table.appendChild(tr);
+                      });
                     });
-                  });
-                });
               </script>
             </tbody>
           </table>
