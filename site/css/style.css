@@ -53,6 +53,18 @@ body {
   color: #fff;
 }
 
+div.form-control.required input {
+  border: 1px solid red;
+}
+
+div.form-control.required label {
+  color: red;
+}
+
+:focus-visible {
+  outline: none;
+}
+
 header {
   background: yellow;
   display: flex;
@@ -293,23 +305,6 @@ form.visualizar {
 
 .content.visualizar {
   padding: 10px;
-}
-
-
-input.required {
-  
-}
-
-div.form-control.required input {
-  border: 1px solid red;
-}
-
-div.form-control.required label {
-  color: red;
-}
-
-:focus-visible {
-  outline: none;
 }
 
 /* END VISUALIZAR */
