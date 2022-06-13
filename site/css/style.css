@@ -37,6 +37,12 @@ body {
   float: right;
   margin-right: 0;
 }
+.btn.btn-voltar {
+  background: #21f39f;
+  color: #222222;
+  margin-left: 0;
+  
+}
 
 .btn.btn-show {
   background: #2196f3;
