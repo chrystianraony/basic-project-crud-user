@@ -54,7 +54,7 @@
             axios.delete(`http://localhost:8080/users/${id}`)
               .then((data) => {
                 Swal.fire("Excluido!", "", "success").then((result) => {
-                  window.location = "/users.html";
+                  window.location = "/users/users.html";
                 });
               })
               .catch((error) => {
@@ -80,13 +80,16 @@
           <nav>
             <ul>
               <li>
-                <a href="index.html">Home</a>
+                <a href="/index.html">Home</a>
               </li>
               <li>
-                <a href="users.html">Usuários</a>
+                <a href="/users/users.html">Usuários</a>
               </li>
               <li>
-                <a href="contact.html">Contato</a>
+                <a href="/cargos">Cargos</a>
+              <li>
+              <li>
+                <a href="/contact.html">Contato</a>
               </li>
             </ul>
           </nav>
@@ -99,7 +102,7 @@
         <div class="container">
           <h2>
             Lista de Usuários
-            <a href="new.html" class="btn btn-new">
+            <a href="/users/new.html" class="btn btn-new">
               <span class="mdi mdi-account-multiple-plus"></span>
               Criar Usuário
             </a>
@@ -112,6 +115,7 @@
                 <th>RG</th>
                 <th>E-mail</th>
                 <th>Cidade</th>
+                <th>Cargos</th>
                 <th>Ações</th>
               </tr>
             </thead>
@@ -123,12 +127,14 @@
                   .then((response) => {
                     users = response.data
                       users.forEach((user) => {
-                        let tr = document.createElement("tr");
-                        tr.innerHTML = `<td>${user.nome}</td>
+                        let tr = document.createElement("tr"); 
+                        tr.innerHTML =                //foi adicionado o cargo, mas tem que verificar se é necessário
+                          `<td>${user.nome}</td>
                            <td>${user.cpf}</td>
                            <td>${user.rg}</td>
-                           <td>${user.email}</td>
+                           <td>${user.email}</td>                           
                            <td>${user.cidade}</td>
+                           <td>${user.cargo}</td>       
                            <td class="acoes">
                               <a href="visualizar.html?id=${user.id}" id="visualizar" class="btn btn-show">
                                 <span class="mdi mdi-eye"></span>

@@ -10,6 +10,7 @@ exports.up = function(knex) {
       table.text('rg').unique().notNullable()
       table.text('email').unique().notNullable()
       table.text('cidade').notNullable()
+      table.text('cargo_id').notNullable()
 
       table.timestamp('created_at').defaultTo(knex.fn.now())
       table.timestamp('updated_at').defaultTo(knex.fn.now())

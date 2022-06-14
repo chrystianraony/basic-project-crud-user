@@ -41,73 +41,20 @@
         campos.nome.parentElement.classList.remove("required")
       }
 
-      if (data.cpf == "") {
-        campos.cpf.parentElement.classList.add("required")
-        valido = false;
-      } else if (! /\d{3}\.?\d{3}\.?\d{3}-?\d{2}/.test(data.cpf)) {
-        Swal.fire({
-            title: 'Erro!',
-            text: 'CPF inválido.',
-            icon: 'error',
-            confirmButtonText: 'Fechar'
-        })
-        valido = false;
-      } else {
-        campos.cpf.parentElement.classList.remove("required")
-      }
-
-      if (data.rg == "") {
-        campos.rg.parentElement.classList.add("required")
-        valido = false;
-      } else {
-        campos.rg.parentElement.classList.remove("required")
-      }
-
-      if (data.email == "") {
-        campos.email.parentElement.classList.add("required")
-        valido = false;
-      } else if (! /\S+@\S+\.\S+/.test(data.email)) {
-        Swal.fire({
-            title: 'Erro!',
-            text: 'Email inválido.',
-            icon: 'error',
-            confirmButtonText: 'Fechar'
-        })
-        valido = false;
-      } else {
-        campos.email.parentElement.classList.remove("required")
-      }
-
-      if (data.cidade == "") {
-        campos.cidade.parentElement.classList.add("required")
-        valido = false;
-      } else {
-        campos.cidade.parentElement.classList.remove("required")
-      }
-
       return valido;
     }
 
     
-    function cadastrarUsuario(event){
+    function cadastrarCargo(event){
       console.log(event)
       event.preventDefault();
 
       const campos = {
         nome: document.getElementById("nome"),
-        cpf: document.getElementById("cpf"),
-        rg: document.getElementById("rg"),
-        email: document.getElementById("email"),
-        cidade: document.getElementById("cidade"),
       }
-
 
       const data = {
         nome: campos.nome.value.trim(),
-        cpf: campos.cpf.value.trim(),
-        rg: campos.rg.value.trim(),
-        email: campos.email.value.trim(),
-        cidade: campos.cidade.value.trim(),
       }
 
 
@@ -116,19 +63,20 @@
       }
 
       
-      axios.post('http://localhost:8080/users', data)
-      .then(function (response) {
+
+      axios.post('http://localhost:8080/cargos', data)
+        .then(function (response) {
         // manipula o sucesso da requisição
         console.log(response);
-
+          console.log("hahaha")
         Swal.fire({
           position: 'center',
           icon: 'success',
-          title: 'Usuário Cadastrado',
+          title: 'Cargo Cadastrado com Sucesso!',
           showConfirmButton: false,
           timer: 1500
         }).then((result) => {
-          window.location = "/users.html"
+          window.location = "/cargos/index.html"
         })
       })
       .catch(function (error) {
@@ -163,7 +111,10 @@
               <a href="/index.html">Home</a>
             </li>
             <li>
-              <a href="/users.html">Usuários</a>
+              <a href="/users/users.html">Usuários</a>
+            </li>
+            <li>
+              <a href="/cargos">Cargos</a>
             </li>
             <li>
               <a href="/contact.html">Contato</a>
@@ -179,7 +130,7 @@
       <div class="container">
         <div class="content">
           <h2>
-            Criar Usuário
+            Criar Cargo
           </h2>
           <form id="newForm" action="#">
             <div class="form-control">
@@ -187,28 +138,14 @@
               <input type="text" name="nome" id="nome" required />
             </div>
             <div class="form-control">
-              <label>CPF*:</label>
-              <input type="text" name="cpf" id="cpf" 
-              pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"  required />
-            </div>
-            <div class="form-control">
-              <label>RG*:</label>
-              <input type="text" name="rg" id="rg"  required />
-            </div>
-            <div class="form-control">
-              <label for="email">E-mail*:</label>
-              <input type="email" name="email" id="email" required />
-            </div>
-            <div class="form-control">
-              <label for="text">Cidade*:</label>
-              <input type="text" name="cidade" id="cidade" required />
-            </div>
-            <div class="form-control">
               <p>(*) - Campos Obrigatórios</p>
             </div>
-              <button class="btn btn-enviar" type="button" onClick="return cadastrarUsuario(event)">
-                Cadastrar Usuário
+              <button class="btn btn-enviar" type="button" onClick="return cadastrarCargo(event)">
+                Cadastrar Cargo
               </button>
+              <a href="index.html" class="btn btn-voltar">
+                <span class="mdi mdi-arrow-left"></span>
+                Voltar</a>
             </div>
           </form>
         </div>
