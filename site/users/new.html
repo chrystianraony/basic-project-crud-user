@@ -207,8 +207,22 @@
               <input type="text" name="cidade" id="cidade" required />
             </div>
             <div class="form-control">                
-              <label for="text">Cargo*:</label>            
-              <input type="text" name="cargo" id="cargo" required>
+              <label for="text" class="cargo">Cargo*:</label>
+              <select name="cargoList" id="cargo" class="cargo">
+                <script>
+                  let select = document.querySelector("select#cargo");
+
+                  axios.get("http://localhost:8080/cargos")
+                    .then((response) => {
+                      cargos = response.data
+                        cargos.forEach((cargo) => {
+                          let option = document.createElement("option");
+                          option.innerHTML = `${cargo.nome}`;
+                          select.appendChild(option);
+                        })
+                    })
+                </script>
+              </select>
             </div>
             <div class="form-control">
               <p>(*) - Campos Obrigatórios</p>
