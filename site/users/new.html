@@ -99,6 +99,7 @@
         rg: document.getElementById("rg"),
         email: document.getElementById("email"),
         cidade: document.getElementById("cidade"),
+        cargo_id: document.getElementById("cargo_id"),
       }
 
 
@@ -108,8 +109,8 @@
         rg: campos.rg.value.trim(),
         email: campos.email.value.trim(),
         cidade: campos.cidade.value.trim(),
+        cargo_id: campos.cargo_id.value.trim(),
       }
-
 
       if (!validarFormulario(campos, data)) {
         return
@@ -208,15 +209,18 @@
             </div>
             <div class="form-control">                
               <label for="text" class="cargo">Cargo*:</label>
-              <select name="cargoList" id="cargo" class="cargo">
+              <select class="cargo">
                 <script>
-                  let select = document.querySelector("select#cargo");
+                  let select = document.querySelector("select.cargo");
 
                   axios.get("http://localhost:8080/cargos")
                     .then((response) => {
                       cargos = response.data
                         cargos.forEach((cargo) => {
-                          let option = document.createElement("option");
+                          var option = document.createElement("option");
+                          option.id = 'cargo_id'
+                          option.name = 'cargo_id'
+                          option.value = `${cargo.id}`
                           option.innerHTML = `${cargo.nome}`;
                           select.appendChild(option);
                         })
