@@ -110,6 +110,7 @@
           <table>
             <thead>
               <tr>
+                <th>ID</th>
                 <th>Nome</th>             
                 <th>Ações</th>
               </tr>
@@ -123,7 +124,8 @@
                     users = response.data
                       users.forEach((cargos) => {
                         let tr = document.createElement("tr");
-                        tr.innerHTML = `<td>${cargos.nome}</td>                                                                
+                        tr.innerHTML = ` <td>${cargos.id}</td>
+                            <td>${cargos.nome}</td>                                                                
                             <td class="acoes">
                               <a href="visualizar.html?id=${cargos.id}" id="visualizar" class="btn btn-show">
                                 <span class="mdi mdi-eye"></span>
