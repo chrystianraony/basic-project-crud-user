@@ -7,7 +7,7 @@ module.exports = {
   },
   async create(req, res, next) {
     try {
-      const { nome, cpf, rg, email, cidade } = req.body;
+      const { nome, cpf, rg, email, cidade, cargo_id } = req.body;
 
       await knex("users").insert({
         nome,
@@ -15,6 +15,7 @@ module.exports = {
         rg,
         email,
         cidade,
+        cargo_id
       })
       return res.status(201).send({ message: "Usuário Criado" }); //201 eh que foi adicionado
     } catch (error) {
