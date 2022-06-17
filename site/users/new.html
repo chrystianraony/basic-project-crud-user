@@ -109,7 +109,7 @@
         rg: campos.rg.value.trim(),
         email: campos.email.value.trim(),
         cidade: campos.cidade.value.trim(),
-        cargo_id: campos.cargo_id.value.trim(),
+        cargo_id: campos.cargo_id.value,
       }
 
       if (!validarFormulario(campos, data)) {
@@ -218,9 +218,9 @@
                       cargos = response.data
                         cargos.forEach((cargo) => {
                           var option = document.createElement("option");
-                          option.id = 'cargo_id'
-                          option.name = 'cargo_id'
+                          select.id = "cargo_id"
                           option.value = `${cargo.id}`
+                          select.value = option.value
                           option.innerHTML = `${cargo.nome}`;
                           select.appendChild(option);
                         })
