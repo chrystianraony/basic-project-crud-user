@@ -314,3 +314,23 @@ form.visualizar {
 }
 
 /* END VISUALIZAR */
+
+/* SELECT CARGO */
+
+body#new-usuario main section#usuarios .form-control label.cargo {
+  display: flex;
+  justify-content: flex-start;
+  margin-right: 0;
+  flex: 2;
+
+}
+select#cargo.cargo {
+  flex: 1;
+  text-align: center;
+}
+
+option {
+  text-align-last:center;
+}
+
+/* END SELECT CARGO */
