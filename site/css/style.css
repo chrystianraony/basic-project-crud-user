@@ -324,7 +324,7 @@ body#new-usuario main section#usuarios .form-control label.cargo {
   flex: 2;
 
 }
-select#cargo.cargo {
+select.cargo {
   flex: 1;
   text-align: center;
 }
