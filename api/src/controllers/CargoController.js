@@ -16,7 +16,7 @@ module.exports = {
     } catch (error) {
       console.log(error)
       if(error.errno === 19) {
-        return res.status(401).send({message: "Cargo já cadastrado em outro usuário"})        
+        return res.status(401).send({message: "Cargo já cadastrado"})        
      }
     }
   },
