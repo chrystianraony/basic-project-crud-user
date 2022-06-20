@@ -27,10 +27,10 @@ module.exports = {
   },
   async update(req, res, next) {
     try {
-      const { nome, cpf, rg, email, cidade } = req.body;
+      const { nome, cpf, rg, email, cidade, cargo_id } = req.body;
       const { id } = req.params;
       
-      await knex("users").update({ nome, cpf, rg, email, cidade }).where("id", id);
+      await knex("users").update({ nome, cpf, rg, email, cidade, cargo_id }).where("id", id);
       // await knex("users").update({ cpf }).where("id", id);
 
       return res.send({ message: "Usuário Atualizado com Sucesso" }); //send significa que esta tudo ok
@@ -55,7 +55,7 @@ module.exports = {
 
       await knex("users")
         .where("id", id)
-        .select("id", "nome", "cpf", "rg", "email", "cidade")
+        .select("id", "nome", "cpf", "rg", "email", "cidade", "cargo_id")
         .first()
         .then((user) => {
           return res.json(user);

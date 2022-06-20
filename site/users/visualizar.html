@@ -52,7 +52,7 @@
             </li>
             <li>
               <a href="/cargos">Cargos</a>
-            <li>
+            </li>
             <li>
               <a href="/contact.html">Contato</a>
             </li>
@@ -72,22 +72,22 @@
             </h2>
             <form action="#" class="visualizar">
               <div class="form-control">
-                <h4 type="text" name="nome" id="nome" readonly="readonly"></h4>
+                <h4 type="text" name="nome" id="nome" ></h4>
               </div>
               <div class="form-control">
-                <p style="cursor:default" type="text" name="cpf" id="cpf" readonly="readonly"></p>
+                <p style="cursor:default" type="text" name="cpf" id="cpf" ></p>
               </div>
               <div class="form-control">
-                <p style="cursor:default" type="text" name="rg" id="rg" readonly="readonly"></p>
+                <p style="cursor:default" type="text" name="rg" id="rg" ></p>
               </div>
               <div class="form-control">
-                <p style="cursor:default" type="email" name="email" id="email" readonly="readonly"></p>
+                <p style="cursor:default" type="email" name="email" id="email" ></p>
               </div>
               <div class="form-control">
-                <p style="cursor:default" type="text" name="cidade" id="cidade" readonly="readonly"></p>
+                <p style="cursor:default" type="text" name="cidade" id="cidade" ></p>
               </div>
               <div class="form-control">
-                <p style="cursor:default" type="text" name="cargo" id="cargo" readonly="readonly"></p>
+                <p style="cursor:default" type="text" name="cargo_id" id="cargo_id" ></p>
               </div>
               <a href="users.html" class="btn btn-voltar">
                 <span class="mdi mdi-arrow-left"></span>
@@ -121,7 +121,8 @@
       document.querySelector('p#cpf').innerHTML = "CPF: " + data.cpf
       document.querySelector('p#rg').innerHTML = "RG: " + data.rg
       document.querySelector('p#email').innerHTML = "E-mail: " + data.email
-      document.querySelector('p#cidade').innerHTML = "CPF: " + data.cidade
+      document.querySelector('p#cidade').innerHTML = "Cidade: " + data.cidade
+      document.querySelector('p#cargo_id').innerHTML = "Cargo: " + data.cargo_id
 
     })
     .catch(function (error) {

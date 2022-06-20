@@ -52,7 +52,7 @@
             </li>
             <li>
               <a href="/cargos">Cargos</a>
-            <li>
+            </li>
             <li>
               <a href="/contact.html">Contato</a>
             </li>
@@ -92,7 +92,24 @@
             </div>
             <div class="form-control">                
               <label for="text">Cargo*:</label>            
-              <input type="text" name="cargo" id="cargo" required>
+              <select class="cargo">
+                <script>
+                  let select = document.querySelector("select.cargo");
+
+                  axios.get("http://localhost:8080/cargos")
+                    .then((response) => {
+                      cargos = response.data
+                        cargos.forEach((cargo) => {
+                          var option = document.createElement("option");
+                          select.id = "cargo_id"
+                          option.value = `${cargo.id}`
+                          select.value = option.value
+                          option.innerHTML = `${cargo.nome}`;
+                          select.appendChild(option);
+                        })
+                    })
+                </script>
+              </select>
             </div>
             <button class="btn btn-enviar" type="button" onclick="atualizarUsuario(event)">
               Finalizar Edição
@@ -170,12 +187,13 @@
         campos.cidade.parentElement.classList.remove("required")
       }
 
-      if (data.cargo == "") {
-        campos.cargo.parentElement.classList.add("required")
+      if (data.cargo_id == "") {
+        campos.cargo_id.parentElement.classList.add("required")
         valido = false;
       } else {
-        campos.cargo.parentElement.classList.remove("required")
+        campos.cargo_id.parentElement.classList.remove("required")
       }
+      
 
       return valido;
     }
@@ -189,7 +207,7 @@
             rg: document.getElementById("rg"),
             email: document.getElementById("email"),
             cidade: document.getElementById("cidade"),
-            cargo: document.getElementById("cargo"),
+            cargo_id: document.getElementById("cargo_id"),
           }
 
           const data = {
@@ -198,7 +216,7 @@
             rg: campos.rg.value.trim(),
             email: campos.email.value.trim(),
             cidade: campos.cidade.value.trim(),
-            cargo: campos.cargo.value.trim(),
+            cargo_id: campos.cargo_id.value.trim(),
           }
 
           if (!validarFormulario(campos, data)) {
