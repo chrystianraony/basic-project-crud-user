@@ -2,7 +2,9 @@ const knex = require("../database");
 
 module.exports = {
   async index(req, res) {
-    const results = await knex("users");
+    const results = await knex("users AS u")
+    .select("u.id", "u.nome", "u.rg", "u.cpf", "u.email", "u.cidade", "u.cargo_id", "c.nome AS cargo_nome", "u.created_at", "u.updated_at")
+    .join("cargos AS c", "u.cargo_id", "c.id")
     return res.json(results);
   },
   async create(req, res, next) {
@@ -53,9 +55,10 @@ module.exports = {
     try {
       const { id } = req.params;
 
-      await knex("users")
-        .where("id", id)
-        .select("id", "nome", "cpf", "rg", "email", "cidade", "cargo_id")
+      await knex("users AS u")
+        .select("u.id", "u.nome", "u.rg", "u.cpf", "u.email", "u.cidade", "u.cargo_id", "c.nome AS cargo_nome", "u.created_at", "u.updated_at")
+        .join("cargos AS c", "u.cargo_id", "c.id")
+        .where("u.id", id)
         .first()
         .then((user) => {
           return res.json(user);

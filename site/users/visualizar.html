@@ -87,7 +87,7 @@
                 <p style="cursor:default" type="text" name="cidade" id="cidade" ></p>
               </div>
               <div class="form-control">
-                <p style="cursor:default" type="text" name="cargo_id" id="cargo_id" ></p>
+                <p style="cursor:default" type="text" name="cargo_nome" id="cargo_nome" ></p>
               </div>
               <a href="users.html" class="btn btn-voltar">
                 <span class="mdi mdi-arrow-left"></span>
@@ -113,16 +113,16 @@
       
     axios.get(`http://localhost:8080/users/${params.id}`)
     .then(function (response) {
-      let data = response.data;
-      if (!data) {
+      let user = response.data;
+      if (!user) {
         throw new Error("Empty data")
       }
-      document.querySelector('h4#nome').innerHTML = "Nome: " + data.nome
-      document.querySelector('p#cpf').innerHTML = "CPF: " + data.cpf
-      document.querySelector('p#rg').innerHTML = "RG: " + data.rg
-      document.querySelector('p#email').innerHTML = "E-mail: " + data.email
-      document.querySelector('p#cidade').innerHTML = "Cidade: " + data.cidade
-      document.querySelector('p#cargo_id').innerHTML = "Cargo: " + data.cargo_id
+      document.querySelector('h4#nome').innerHTML = "Nome: " + user.nome
+      document.querySelector('p#cpf').innerHTML = "CPF: " + user.cpf
+      document.querySelector('p#rg').innerHTML = "RG: " + user.rg
+      document.querySelector('p#email').innerHTML = "E-mail: " + user.email
+      document.querySelector('p#cidade').innerHTML = "Cidade: " + user.cidade
+      document.querySelector('p#cargo_nome').innerHTML = "Cargo: " + user.cargo_nome
 
     })
     .catch(function (error) {
