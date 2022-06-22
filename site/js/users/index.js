@@ -46,7 +46,7 @@ function excluirUsuario(event, id) {
         axios.delete(`http://localhost:8080/users/${id}`)
           .then((data) => {
             Swal.fire("Excluido!", "", "success").then((result) => {
-              window.location = "/users/users.html";
+              window.location = "/users/";
             });
           })
           .catch((error) => {

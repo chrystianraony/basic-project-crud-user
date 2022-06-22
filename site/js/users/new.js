@@ -95,7 +95,7 @@ function validarFormulario(campos, data) {
         showConfirmButton: false,
         timer: 1500
       }).then((result) => {
-        window.location = "/"
+        window.location = "/users/"
       })
     })
     .catch(function (error) {
