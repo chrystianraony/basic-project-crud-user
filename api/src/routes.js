@@ -3,6 +3,7 @@ const routes = express.Router()
 
 const UserController = require('./controllers/UserController')
 const CargoController = require('./controllers/CargoController')
+const MedicosController = require('./controllers/MedicosController')
 
 routes.get('/users', UserController.index)
 routes.post('/users', UserController.create)
@@ -15,6 +16,12 @@ routes.post('/cargos', CargoController.create)
 routes.get('/cargos/:id', CargoController.get)
 routes.put('/cargos/:id', CargoController.update)
 routes.delete('/cargos/:id', CargoController.delete)
+
+routes.get('/medicos', MedicosController.index)
+routes.post('/medicos', MedicosController.create)
+routes.get('/medicos/:id', MedicosController.get)
+routes.put('/medicos/:id', MedicosController.update)
+routes.delete('/medicos/:id', MedicosController.delete)
 
 
 

@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <header></header>
-    <body>
-      <main>
-        <section id="usuarios">
-          <div class="container">
-            <h2>
-              Lista de Cargos
-              <a href="/cargos/new.html" class="btn btn-new">
-                <span class="mdi mdi-account-multiple-plus"></span>
-                Criar Cargo
-              </a>
-            </h2>
-            <table>
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Nome</th>             
-                  <th>Ações</th>
-                </tr>
-              </thead>
-         
-            </table>
-          </div>
-        </section>
-      </main>
-   </body>
+  <head></head>
+  <body>
+    <header id="general-header"></header>
+    <main>
+      <section id="usuarios">
+        <div class="container">
+          <h2>
+            Lista de Médicos
+            <a href="/medicos/new.html" class="btn btn-new">
+              <span class="mdi mdi-account-multiple-plus"></span>
+              Criar Médico
+            </a>
+          </h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>CRM</th>
+                <th>Especialização</th>
+                <th>Telefone</th>
+                <th>Email</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="tabelaTeste"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
 
-    <footer></footer>
+    <footer id="general-footer"></footer>
+    <script src="/js/utils/loadJS.js" type="text/javascript"></script>
+    <script src="/js/medicos/index.js" type="text/javascript"></script>
+    <script src="/js/index.js" type="text/javascript"></script>
   </body>
 </html>
