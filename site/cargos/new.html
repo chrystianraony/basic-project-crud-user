@@ -1,129 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="Codtry" />
-  <meta name="description" content="PIUAE - é um site de controle de ....." />
-  <meta name="keywords" content="Usuários, Painel de Controle, Dashboard" />
-
-  <link rel="stylesheet" href="/css/normalize.css" />
-  <link rel="stylesheet" href="/css/style.css" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.all.js" integrity="sha512-L0pIRrYrKsfCidtpWhWSrrbyAcSfrvMaezfwnNGns7c7MuToIEZRabX+WmZ6+Dzn8ESNsHz7t/k6vF8aM1fVXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.js" integrity="sha512-zL6Mk/gs8FtX6ZaN+ObOH/biB8Phx217vhCxRLzNdfHX2JlPgbmVuu948wqLYxY+QqgaLnbIbg6g5J7zszY4dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-  <title>PIUAE - Página Inicial</title>
-
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.all.js" integrity="sha512-L0pIRrYrKsfCidtpWhWSrrbyAcSfrvMaezfwnNGns7c7MuToIEZRabX+WmZ6+Dzn8ESNsHz7t/k6vF8aM1fVXg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.js" integrity="sha512-zL6Mk/gs8FtX6ZaN+ObOH/biB8Phx217vhCxRLzNdfHX2JlPgbmVuu948wqLYxY+QqgaLnbIbg6g5J7zszY4dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-  <script>
-
-    function validarFormulario(campos, data) {
-
-      let valido = true;
-
-      if (data.nome == "") {
-        campos.nome.parentElement.classList.add("required")
-        valido = false;
-      } else {
-        campos.nome.parentElement.classList.remove("required")
-      }
-
-      return valido;
-    }
-
-    
-    function cadastrarCargo(event){
-      console.log(event)
-      event.preventDefault();
-
-      const campos = {
-        nome: document.getElementById("nome"),
-      }
-
-      const data = {
-        nome: campos.nome.value.trim(),
-      }
-
-
-      if (!validarFormulario(campos, data)) {
-        return
-      }
-
-      
-
-      axios.post('http://localhost:8080/cargos', data)
-        .then(function (response) {
-        // manipula o sucesso da requisição
-        console.log(response);
-          console.log("hahaha")
-        Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Cargo Cadastrado com Sucesso!',
-          showConfirmButton: false,
-          timer: 1500
-        }).then((result) => {
-          window.location = "/cargos/index.html"
-        })
-      })
-      .catch(function (error) {
-        // manipula erros da requisição
-        console.error(error);
-      })
-      .then(function () {
-        // sempre será executado
-      });
-      
-
-
-      
-    }
-   </script>
-
-
-</head>
+<head></head>
 <body id="new-usuario">
-  <header>
-    <div class="container">
-      <div class="content">
-        <div id="logo">
-          <a href="/index.html">
-            <img src="/img/logo.png" alt="Logo PIUAE" />
-          </a>
-        </div>
-
-        <nav>
-          <ul>
-            <li>
-              <a href="/index.html">Home</a>
-            </li>
-            <li>
-              <a href="/users/users.html">Usuários</a>
-            </li>
-            <li>
-              <a href="/cargos">Cargos</a>
-            </li>
-            <li>
-              <a href="/contact.html">Contato</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </header>
+  <header id="general-header"></header>
 
   <main>
     <section id="usuarios">
@@ -143,7 +22,7 @@
               <button class="btn btn-enviar" type="button" onClick="return cadastrarCargo(event)">
                 Cadastrar Cargo
               </button>
-              <a href="index.html" class="btn btn-voltar">
+              <a href="/cargos" class="btn btn-voltar">
                 <span class="mdi mdi-arrow-left"></span>
                 Voltar</a>
             </div>
@@ -153,10 +32,9 @@
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      <p>Todos os direitos reservados &copy; 2022</p>      
-    </div>
-  </footer>
+  <footer id="general-footer"></footer>
+  <script src="/js/utils/loadJS.js" type="text/javascript"></script>
+  <script src="/js/index.js"></script>
+  <script src="/js/cargos/new.js"></script>
 </body>
 </html>

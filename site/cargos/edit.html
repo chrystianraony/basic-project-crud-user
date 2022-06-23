@@ -1,66 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="Codtry" />
-  <meta name="description" content="PIUAE - é um site de controle de ....." />
-  <meta name="keywords" content="Usuários, Painel de Controle, Dashboard" />
-
-  <link rel="stylesheet" href="/css/normalize.css" />
-  <link rel="stylesheet" href="/css/style.css" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css">
-
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.all.js"
-    integrity="sha512-L0pIRrYrKsfCidtpWhWSrrbyAcSfrvMaezfwnNGns7c7MuToIEZRabX+WmZ6+Dzn8ESNsHz7t/k6vF8aM1fVXg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.js"
-    integrity="sha512-zL6Mk/gs8FtX6ZaN+ObOH/biB8Phx217vhCxRLzNdfHX2JlPgbmVuu948wqLYxY+QqgaLnbIbg6g5J7zszY4dg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-  <title>PIUAE - Página Inicial</title>
-
-</head>
+<head></head>
 
 <body id="new-usuario">
-  <header>
-    <div class="container">
-      <div class="content">
-        <div id="logo">
-          <a href="index.html">
-            <img src="/img/logo.png" alt="Logo PIUAE" />
-          </a>
-        </div>
-
-        <nav>
-          <ul>
-            <li>
-              <a href="/index.html">Home</a>
-            </li>
-            <li>
-              <a href="/users/users.html">Usuários</a>
-            </li>
-            <li>
-              <a href="/cargos">Cargos</a>
-            </li>
-            <li>
-              <a href="contact.html">Contato</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </header>
+  <header id="general-header"></header>
 
   <main>
     <section id="usuarios">
@@ -77,7 +21,7 @@
             <button class="btn btn-enviar" type="button" onclick="atualizarUsuario(event)">
               Finalizar Edição
             </button>
-            <a href="index.html" class="btn btn-voltar">
+            <a href="/cargos" class="btn btn-voltar">
               <span class="mdi mdi-arrow-left"></span>
               Voltar</a>
         </div>
@@ -87,100 +31,12 @@
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      <p>Todos os direitos reservados &copy; 2022</p>
-    </div>
-  </footer>
+  <footer id="general-footer"></footer>
 
-  <script>
-    
-    function validarFormulario(campos, data) {
+  <script src="/js/cargos/edit.js"></script>
+  <script src="/js/utils/loadJS.js"></script>
+  <script src="/js/index.js" type="text/javascript"></script>
 
-      let valido = true;
-
-      if (data.nome == "") {
-        campos.nome.parentElement.classList.add("required")
-        valido = false;
-      } else {
-        campos.nome.parentElement.classList.remove("required")
-      }
-
-      return valido;
-    }
-
-    function atualizarUsuario(event) {
-          event.preventDefault();
-
-          const campos = {
-            nome: document.getElementById("nome"),
-            
-          }
-
-          const data = {
-            nome: campos.nome.value.trim(),
-            
-          }
-
-          if (!validarFormulario(campos, data)) {
-            return
-          }
-
-          console.log(data)
-          Swal.fire({
-            title: 'Atualizar Cargo?',
-            showDenyButton: true,
-            showCancelButton: false,
-            confirmButtonText: 'Atualizar',
-            denyButtonText: `Cancelar`,
-          }).then((result) => {
-            if (result.isConfirmed) {
-              axios.put(`http://localhost:8080/cargos/${params.id}`, data)
-                .then(async function (response) {
-                  await Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: 'Dados atualizados',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-                  console.log('Success:', data);
-                  window.location.href = 'index.html';
-                })
-                .catch(function (error) {
-                  console.log('Error:', error);
-                  window.location.href = 'index.html';
-
-                })
-            }
-          })
-    }
-
-    const params = new Proxy(new URLSearchParams(window.location.search), {
-      get: (searchParams, prop) => searchParams.get(prop),
-    });
-
-      axios.get(`http://localhost:8080/cargos/${params.id}`)
-        .then(function (response) {
-          let data = response.data;
-          if (!data) {
-            throw new Error("Empty data");
-          }
-          document.querySelector('input#nome').value = data.nome
-          
-        })
-        .catch(function (error) {
-          Swal.fire({
-            title: 'Erro!',
-            text: 'Não foi possível encontrar o Cargo fornecido.',
-            icon: 'error',
-            confirmButtonText: 'Fechar'
-          }).then(function (result) {
-            window.location.href = 'index.html';
-          })
-        })
-  </script>
-  
 </body>
 
 </html>
