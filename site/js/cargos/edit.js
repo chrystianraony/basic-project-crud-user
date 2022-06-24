@@ -77,7 +77,7 @@ const initFn = (e) => {
         icon: "error",
         confirmButtonText: "Fechar",
       }).then(function (result) {
-        window.location.href = "index.html";
+        window.location.href = "/medicos/";
       });
     });
 };

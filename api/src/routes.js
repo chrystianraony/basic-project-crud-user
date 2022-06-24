@@ -4,6 +4,7 @@ const routes = express.Router()
 const UserController = require('./controllers/UserController')
 const CargoController = require('./controllers/CargoController')
 const PacienteController = require('./controllers/PacienteController')
+const MedicosController = require('./controllers/MedicosController')
 
 routes.get('/users', UserController.index)
 routes.post('/users', UserController.create)
@@ -22,5 +23,13 @@ routes.get('/pacientes', PacienteController.index)
 // routes.get('/pacientes', PacienteController.get)
 // routes.put('/cargos/:id', PacienteController, update)
 // routes.delete('/cargos/:id', PacienteController.delete)
+
+routes.get('/medicos', MedicosController.index)
+routes.post('/medicos', MedicosController.create)
+routes.get('/medicos/:id', MedicosController.get)
+routes.put('/medicos/:id', MedicosController.update)
+routes.delete('/medicos/:id', MedicosController.delete)
+
+
 
 module.exports = routes
