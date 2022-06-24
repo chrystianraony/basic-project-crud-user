@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <body id="new-usuario">
+    <header id="general-header"></header>
+    <main>
+      <section id="usuarios">
+        <div class="container">
+          <div class="content">
+            <h2>Cadastrar Paciente</h2>
+            <form id="newForm" action="#">
+              <div class="form-control">
+                <label for="nome">Nome*: </label>
+                <input type="text" name="nome" id="nome" required />
+              </div>
+              <div class="form-control">
+                <label>CPF*: </label>
+                <input type="text" name="cpf" id="cpf" required />
+              </div>
+              <div class="form-control">
+                <label>Telefone*: </label>
+                <input type="text" name="telefone" id="telefone" required />
+              </div>
+              <div class="form-control">
+                <label>Email*: </label>
+                <input type="email" name="email" id="email" required />
+              </div>
+              <div class="form-control">
+                <label>Sexo*: </label>
+                <input type="text" name="sexo" id="sexo" required />
+              </div>
+              <div class="form-control">
+                <label>Idade*: </label>
+                <input type="text" name="idade" id="idade" required />
+              </div>
+              <div class="form-control">
+                <p>(*) - Campos Obrigatórios</p>
+              </div>
+              <button class="btn btn-enviar" type="button" onclick="">
+                Cadastrar Paciente
+              </button>
+              <a href="/pacientes" class="btn btn-voltar">
+                <span class="mdi mdi-arrow-left"></span>
+                Voltar
+              </a>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer id="general-footer"></footer>
+
+    <script src="/js/utils/loadJS.js"></script>
+    <script src="/js/index.js"></script>
+    <!-- <script src="/js/pacientes/new.js"></script> -->
+  </body>
+</html>
