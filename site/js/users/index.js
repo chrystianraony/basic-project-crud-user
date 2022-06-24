@@ -3,6 +3,7 @@ const initFn = (e) => {
 
     axios.get("http://localhost:8080/users").then((response) => {
         users = response.data;
+        console.log(users)
         users.forEach((user) => {
             let tr = document.createElement("tr");
             tr.innerHTML =
