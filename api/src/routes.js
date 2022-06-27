@@ -21,7 +21,7 @@ routes.delete('/cargos/:id', CargoController.delete)
 routes.get('/pacientes', PacienteController.index)
 routes.post('/pacientes', PacienteController.create)
 routes.get('/pacientes/:id', PacienteController.get)
-// routes.put('/pacientes/:id', PacienteController.update)
+routes.put('/pacientes/:id', PacienteController.update)
 routes.delete('/pacientes/:id', PacienteController.delete)
 
 routes.get('/medicos', MedicosController.index)

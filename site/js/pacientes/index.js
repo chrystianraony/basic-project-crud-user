@@ -17,7 +17,7 @@ const initFn = (e) => {
                 <a href="visualizar.html?id=${paciente.id}" id="visualizar" class="btn btn-show">
                 <span class="mdi mdi-eye"></span>
                 </a>
-                <a href="#" id="editar" class="btn btn-edit">
+                <a href="edit.html?id=${paciente.id}" id="editar" class="btn btn-edit">
                 <span class="mdi mdi-lead-pencil"></span>
                 </a>
                 <button class="btn btn-delete" type="button" onClick="excluirPaciente(event, ${paciente.id})">

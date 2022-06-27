@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <body id="new-usuario">
+    <header id="general-header"></header>
+    <main>
+      <section id="usuarios">
+        <div class="container">
+          <div class="content">
+            <h2>Edição dos dados do Paciente</h2>
+            <form action="#">
+              <div class="form-control">
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" id="nome" required />
+              </div>
+              <div class="form-control">
+                <label>CPF:</label>
+                <input type="text" name="cpf" id="cpf" required />
+              </div>
+              <div class="form-control">
+                <label>Telefone:</label>
+                <input type="text" name="telefone" id="telefone" required />
+              </div>
+              <div class="form-control">
+                <label>Email:</label>
+                <input type="email" name="email" id="email" required />
+              </div>
+              <div class="form-control">
+                <label>Sexo:</label>
+                <input type="text" name="sexo" id="sexo" required />
+              </div>
+              <div class="form-control">
+                <label>Idade:</label>
+                <input type="text" name="idade" id="idade" required />
+              </div>
+              <button
+                class="btn btn-enviar"
+                type="button"
+                onclick="atualizarPaciente(event)"
+              >
+                Finalizar Edição
+              </button>
+              <a href="/pacientes" class="btn btn-voltar">
+                <span class="mdi mdi-arrow-left"></span>
+                Voltar</a
+              >
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer id="general-footer"></footer>
+
+    <script src="/js/pacientes/edit.js" type="text/javascript"></script>
+    <script src="/js/utils/loadJS.js" type="text/javascript"></script>
+    <script src="/js/index.js" type="text/javascript"></script>
+  </body>
+</html>
