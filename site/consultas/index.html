@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <body>
+    <header id="general-header"></header>
+    <main>
+      <section id="usuarios">
+        <div class="container">
+          <h2>
+            Lista de Agendamentos
+            <a href="/consultas/new.html" class="btn btn-new">
+              <span class="mdi mdi-alarm-clock-add"></span>
+              Novo Agendamento
+            </a>
+          </h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Médico</th>
+                <th>Paciente</th> 
+                <th>Número do Paciente</th> <!--pega dos dados do paciente-->
+                <th>E-mail do Paciente</th> <!--pega dos dados do paciente-->
+                <th>Tipo da Consulta</th> <!--Especializacao que vem dos dados do médico-->
+                <th>Horario da Consulta</th> <!--hora/minuto/dia/mes/ano-->
+                <th>Local</th> <!--Local do médico vem dos dados do médico-->
+                <th>Ações</th> <!--visualizar editar excluir-->
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </section>
+    </main>
+    <footer id="general-footer"></footer>
+    <!-- <script src="/js/agendamentos/" type="text/javascript"></script> -->
+    <script src="/js/utils/loadJS.js" type="text/javascript"></script>
+    <script src="/js/index.js" type="text/javascript"></script>
+  </body>
+</html>
