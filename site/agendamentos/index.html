@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <body>
+    <header id="general-header"></header>
+    <main>
+      <section id="usuarios">
+        <div class="container">
+          <h2>
+            Lista de Agendamentos
+            <a href="/agendamentos/new.html" class="btn btn-new">
+              <span class="mdi mdi-alarm-plus"></span>
+              Novo Agendamento
+            </a>
+          </h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Médico</th>
+                <th>Paciente</th>
+                <th>Observações</th>
+                <!--Especializacao que vem dos dados do médico-->
+                <th>Horario da Consulta</th>
+                <!--hora/minuto/dia/mes/ano-->
+                <th>Ações</th>
+                <!--visualizar editar excluir-->
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  joao <br> 
+                  rua videira <br> 
+                  telefone <br>
+                </td>
+                <td>
+                  clebeso <br> 
+                  email <br> 
+                  telefone <br>
+                </td>
+                <td>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam quam laudantium corrupti. 
+                  Sint veniam alias assumenda repellat, eius a laborum exercitationem rerum at?
+                </td>
+                <td>
+                  13:00 <br>
+                  28/03/2022
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <footer id="general-footer"></footer>
+    <!-- <script src="/js/agendamentos/" type="text/javascript"></script> -->
+    <script src="/js/utils/loadJS.js" type="text/javascript"></script>
+    <script src="/js/index.js" type="text/javascript"></script>
+  </body>
+</html>

@@ -334,3 +334,19 @@ option {
 }
 
 /* END SELECT CARGO */
+
+/* NEW AGENDAMENTO */
+
+select#selectBoxNew {
+  flex: 2;
+  text-align: center;
+}
+select#selectBoxNew option {
+  text-align-last:center;
+}
+
+div#contact_textarea textarea#comentario {
+  resize: none;
+}
+
+/* END NEW AGENDAMENTO */
