@@ -33,8 +33,8 @@ routes.delete("/medicos/:id", MedicosController.delete);
 
 routes.get("/agendamentos", AgendamentosController.index);
 routes.post("/agendamentos", AgendamentosController.create);
-// routes.get("/agendamentos/:id", AgendamentosController.get);
-// routes.put("/agendamentos/:id", AgendamentosController.update);
-// routes.delete("/agendamentos/:id", AgendamentosController.delete);
+routes.get("/agendamentos/:id", AgendamentosController.get);
+routes.put("/agendamentos/:id", AgendamentosController.update);
+routes.delete("/agendamentos/:id", AgendamentosController.delete);
 
 module.exports = routes;

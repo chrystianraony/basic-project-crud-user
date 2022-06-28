@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head></head>
+
+<body id="show-usuario">
+  <header id="general-header"></header>
+
+  <main>
+    <section id="usuarios">
+      <div class="container">
+        <div class="card visualizar">
+          <div class="content visualizar">
+            <h2>
+              Dados do Agendamento
+            </h2>
+            <form action="#" class="visualizar">
+              <div class="form-control">
+                <h4 type="text" name="medico" id="medico" readonly="readonly"></h4>
+              </div>
+              <div class="form-control">
+                <p type="text" name="paciente" id="paciente" ></p>
+              </div>
+              <div class="form-control">
+                <p type="text" name="datetime" id="datetime" ></p>
+              </div>
+              <div class="form-control">
+                <p type="email" name="observacao" id="observacao" ></p>
+              </div>
+              
+              <a href="/agendamentos" class="btn btn-voltar">
+                <span class="mdi mdi-arrow-left"></span>
+                Voltar</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+
+  <footer id="general-footer"></footer>
+  <script src="/js/utils/loadJS.js" type="text/javascript"></script>
+  <script src="/js/index.js"></script>
+  <script src="/js/agendamentos/visualizar.js" type="text/javascript"></script>
+</body>
+
+</html>
