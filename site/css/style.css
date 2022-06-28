@@ -345,7 +345,7 @@ select#selectBoxNew option {
   text-align-last:center;
 }
 
-div#contact_textarea textarea#comentario {
+div#contact_textarea textarea#observacao {
   resize: none;
 }
 

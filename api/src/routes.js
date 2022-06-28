@@ -31,4 +31,10 @@ routes.get("/medicos/:id", MedicosController.get);
 routes.put("/medicos/:id", MedicosController.update);
 routes.delete("/medicos/:id", MedicosController.delete);
 
+routes.get("/agendamentos", AgendamentosController.index);
+routes.post("/agendamentos", AgendamentosController.create);
+// routes.get("/agendamentos/:id", AgendamentosController.get);
+// routes.put("/agendamentos/:id", AgendamentosController.update);
+// routes.delete("/agendamentos/:id", AgendamentosController.delete);
+
 module.exports = routes;

@@ -31,4 +31,5 @@
     
     
     loadJS('https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.all.js')
+    loadJS('https://cdn.jsdelivr.net/npm/flatpickr')
 })()
