@@ -354,3 +354,9 @@ div#contact_textarea textarea#observacao {
 }
 
 /* END NEW AGENDAMENTO */
+
+body#login  .content  {
+  display: flex;
+  justify-content: center;
+
+}

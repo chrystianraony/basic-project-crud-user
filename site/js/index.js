@@ -8,12 +8,11 @@
 
    // CARREGA O HEADER
     let header = document.querySelector("header#general-header");
-
+    
     const headerResponse = await fetch('/shared/partials/_header.html')
     const headerData = await headerResponse.text()
-
+    
     header.innerHTML = headerData;
-
 
     // CARREGA O FOOTER
     let footer = document.querySelector("footer#general-footer");
