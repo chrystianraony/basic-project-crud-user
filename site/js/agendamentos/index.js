@@ -11,7 +11,7 @@ const initFn = (e) => {
             <td>${agendamento.observacao}</td>
             <td>${agendamento.datetime}</td> 
             <td class="acoes">
-                <a href="view.html?id=${agendamento.id}" id="visualizar" class="btn btn-show">
+                <a href="visualizar.html?id=${agendamento.id}" id="visualizar" class="btn btn-show">
                 <span class="mdi mdi-eye"></span>
                 </a>
                 <a href="edit.html?id=${agendamento.id}" id="editar" class="btn btn-edit">
