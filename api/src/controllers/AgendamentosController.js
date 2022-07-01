@@ -60,16 +60,16 @@ module.exports = {
       const { id } = req.params;
 
       await knex("agendamentos AS ag")
-        .select("ag.id", "m.nome", "paciente_nome", "ag.datetime", "ag.observacao", "ag.created_at", "ag.update_at")
-        .join("medicos AS m", "ag.medico_id", "m.id")
-        .join("pacientes AS pac", "ag.paciente_id", "pac.id")
-        .where("ag.id",id)
-        .first()
-        .then((agenda) => {
-          return res.json(agenda);
-        });
+      .select("ag.id", "m.nome", "pac.nome AS paciente_nome", "ag.datetime", "ag.observacao")
+      .join("medicos AS m", "ag.medico_id", "m.id")
+      .join("pacientes AS pac", "ag.paciente_id", "pac.id")
+      .where("ag.id", id)
+      .first()
+      .then((agenda) => {
+        return res.json(agenda);
+      });
     } catch (error) {
       next(error);
     }
-  },
+  }
 };
