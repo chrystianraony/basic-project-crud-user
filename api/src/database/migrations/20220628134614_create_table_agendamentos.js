@@ -5,8 +5,8 @@
 exports.up = function(knex) {
   return knex.schema.createTable("agendamentos", function (table) {
     table.increments("id");
-    table.text("medico").notNullable;
-    table.text("paciente").notNullable;
+    table.text("medico_id").notNullable;
+    table.text("paciente_id").notNullable;
     table.dateTime("datetime").notNullable;
     table.text("observacao").notNullable;
 

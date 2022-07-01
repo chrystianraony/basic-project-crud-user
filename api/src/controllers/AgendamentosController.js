@@ -3,9 +3,9 @@ const knex = require("../database");
 module.exports = {
   async index(req, res) {
     const results = await knex("agendamentos AS ag")
-    .select("ag.id", "m.nome", "pac.nome AS paciente_nome", "ag.datetime", "ag.observacao", "ag.created_at", "ag.update_at")
+    .select("ag.id", "m.nome", "pac.nome AS paciente_nome", "ag.datetime", "ag.observacao", "ag.created_at", "ag.updated_at")
     .join("medicos AS m", "ag.medico_id", "m.id")
-    .join("paciente AS pac", "ag.paciente_id", "pac.id")
+    .join("pacientes AS pac", "ag.paciente_id", "pac.id")
     return res.json(results);
   },
 
@@ -37,7 +37,6 @@ module.exports = {
       await knex("agendamentos").update({paciente_id}).where("id", id);
       await knex("agendamentos").update({datetime}).where("id", id);
       await knex("agendamentos").update({observacao}).where("id", id);
-      // await knex("users").update({ cpf }).where("id", id);
 
       return res.send({ message: "Agendamento Atualizado com Sucesso" }); //send significa que esta tudo ok
     } catch (error) {
@@ -60,16 +59,16 @@ module.exports = {
       const { id } = req.params;
 
       await knex("agendamentos AS ag")
-        .select("ag.id", "m.nome", "paciente_nome", "ag.datetime", "ag.observacao", "ag.created_at", "ag.update_at")
-        .join("medicos AS m", "ag.medico_id", "m.id")
-        .join("paciente AS pac", "ag.paciente_id", "pac.id")
-        .where("ag.id",id)
-        .first()
-        .then((agenda) => {
-          return res.json(agenda);
-        });
+      .select("ag.id", "m.nome", "pac.nome AS paciente_nome", "ag.datetime", "ag.observacao")
+      .join("medicos AS m", "ag.medico_id", "m.id")
+      .join("pacientes AS pac", "ag.paciente_id", "pac.id")
+      .where("ag.id", id)
+      .first()
+      .then((agenda) => {
+        return res.json(agenda);
+      });
     } catch (error) {
       next(error);
     }
-  },
+  }
 };

@@ -349,4 +349,8 @@ div#contact_textarea textarea#observacao {
   resize: none;
 }
 
+.form-control .choices {
+  width: 100%;
+}
+
 /* END NEW AGENDAMENTO */
