@@ -37,7 +37,6 @@ module.exports = {
       await knex("agendamentos").update({paciente_id}).where("id", id);
       await knex("agendamentos").update({datetime}).where("id", id);
       await knex("agendamentos").update({observacao}).where("id", id);
-      // await knex("users").update({ cpf }).where("id", id);
 
       return res.send({ message: "Agendamento Atualizado com Sucesso" }); //send significa que esta tudo ok
     } catch (error) {
