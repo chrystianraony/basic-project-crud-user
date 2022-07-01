@@ -10,7 +10,7 @@ const initFn = (e) => {
       if (!schedule) {
         throw new Error("Empty data")
       }
-      document.querySelector('h4#medico').innerHTML = "Médico: " + schedule.nome
+      document.querySelector('h4#medico').innerHTML = "Médico: " + schedule.medico_nome
       document.querySelector('p#paciente').innerHTML = "Paciente: " + schedule.paciente_nome
       document.querySelector('p#datetime').innerHTML = "Data da Consulta: " + schedule.datetime
       document.querySelector('p#observacao').innerHTML = "Observação: " + schedule.observacao

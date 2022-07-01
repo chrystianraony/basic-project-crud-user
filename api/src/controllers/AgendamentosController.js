@@ -3,7 +3,7 @@ const knex = require("../database");
 module.exports = {
   async index(req, res) {
     const results = await knex("agendamentos AS ag")
-    .select("ag.id", "m.nome", "pac.nome AS paciente_nome", "ag.datetime", "ag.observacao", "ag.created_at", "ag.updated_at")
+    .select("ag.id", "ag.medico_id","ag.paciente_id", "m.nome AS medico_nome", "pac.nome AS paciente_nome", "ag.datetime", "ag.observacao", "ag.created_at", "ag.updated_at")
     .join("medicos AS m", "ag.medico_id", "m.id")
     .join("pacientes AS pac", "ag.paciente_id", "pac.id")
     return res.json(results);
@@ -59,7 +59,7 @@ module.exports = {
       const { id } = req.params;
 
       await knex("agendamentos AS ag")
-      .select("ag.id", "m.nome", "pac.nome AS paciente_nome", "ag.datetime", "ag.observacao")
+      .select("ag.id", "ag.medico_id", "ag.paciente_id", "m.nome AS medico_nome", "pac.nome AS paciente_nome", "ag.datetime", "ag.observacao")
       .join("medicos AS m", "ag.medico_id", "m.id")
       .join("pacientes AS pac", "ag.paciente_id", "pac.id")
       .where("ag.id", id)

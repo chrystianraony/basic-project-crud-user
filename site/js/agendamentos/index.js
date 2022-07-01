@@ -6,7 +6,7 @@ const initFn = (e) => {
     agendamentos.forEach((agendamento) => {
       let tr = document.createElement("tr");
       tr.innerHTML = ` 
-            <td>${agendamento.nome}</td> 
+            <td>${agendamento.medico_nome}</td> 
             <td>${agendamento.paciente_nome}</td>
             <td>${agendamento.observacao}</td>
             <td>${agendamento.datetime}</td> 
