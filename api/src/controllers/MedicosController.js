@@ -2,8 +2,24 @@ const knex = require("../database");
 
 module.exports = {
     async index(req, res){
-        const results = await knex("medicos")
-        return res.json(results);
+      const params = req.query
+
+      console.log(params)
+
+      const results = await knex("medicos").where((builder) => {
+        
+        if (params.medico_id) {
+          builder.where('id', params.medico_id)
+        } 
+        
+
+
+      })
+
+     
+
+
+      return res.json(results);
     },
     async create(req, res, next){
         try {

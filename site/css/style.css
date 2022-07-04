@@ -335,22 +335,19 @@ option {
 
 /* END SELECT CARGO */
 
-/* NEW AGENDAMENTO */
-
-select#selectBoxNew {
-  flex: 2;
-  text-align: center;
-}
-select#selectBoxNew option {
-  text-align-last:center;
-}
-
-div#contact_textarea textarea#observacao {
-  resize: none;
-}
+/* AGENDAMENTO */
 
 .form-control .choices {
-  width: 100%;
+  flex: 2;
 }
 
-/* END NEW AGENDAMENTO */
+.choices__list.choices__list--single {
+  padding: 15px 7.5px 3.75px;
+}
+
+/* END AGENDAMENTO */
+
+
+/* SELECT MEDICO */
+
+/* END SELECT MEDICO */

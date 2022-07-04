@@ -24,7 +24,7 @@ const initFn = (e) => {
 
       table.appendChild(tr);
     });
-  });
+  }); 
 };
 
 function excluirAgendamento(event, id) {
