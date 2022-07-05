@@ -1,4 +1,4 @@
-const initFn = (e, options = { nome: 'top' }) => {
+const initFn = (e, options = { }) => {
   let table = document.querySelector("tbody#tabelaTeste");
 
   // capturar os campos de filtros e passar na URL
@@ -99,11 +99,9 @@ const initFn = (e, options = { nome: 'top' }) => {
 
 };
 
-// function filtrarMedico(event) {
-//   options = {
+function filtrarMedico(event) {
 
-//   }
-// }
+}
 
 function excluirMedico(event, id) {
   console.log(event);
