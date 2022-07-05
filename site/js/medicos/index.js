@@ -76,19 +76,19 @@ const initFn = (e, options = { nome: 'top' }) => {
     medicos.forEach((medico) => {
       let tr = document.createElement("tr");
       tr.innerHTML = ` 
-            <td>${medico.nome}</td> 
-            <td>${medico.crm}</td>
-            <td>${medico.especializacao}</td> 
-            <td>${medico.telefone}</td>
-            <td>${medico.email}</td>                                                              
+            <td>${medicos.nome}</td> 
+            <td>${medicos.crm}</td>
+            <td>${medicos.especializacao}</td> 
+            <td>${medicos.telefone}</td>
+            <td>${medicos.email}</td>                                                              
             <td class="acoes">
-                <a href="view.html?id=${medico.id}" id="visualizar" class="btn btn-show">
+                <a href="view.html?id=${medicos.id}" id="visualizar" class="btn btn-show">
                 <span class="mdi mdi-eye"></span>
                 </a>
-                <a href="edit.html?id=${medico.id}" id="editar" class="btn btn-edit">
+                <a href="edit.html?id=${medicos.id}" id="editar" class="btn btn-edit">
                 <span class="mdi mdi-lead-pencil"></span>
                 </a>
-                <button class="btn btn-delete" type="button" onclick="excluirMedico(event, ${medico.id})">
+                <button class="btn btn-delete" type="button" onclick="excluirMedico(event, ${medicos.id})">
                 <span class="mdi mdi-trash-can-outline"></span>
                 </button>
             
