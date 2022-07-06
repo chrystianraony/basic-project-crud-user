@@ -1,5 +1,6 @@
 const initFn = (e, options = { }) => {
   let table = document.querySelector("tbody#tabelaTeste");
+  table.innerHTML = ""
 
   // capturar os campos de filtros e passar na URL
   let url = "http://localhost:8080/medicos";
@@ -18,90 +19,112 @@ const initFn = (e, options = { }) => {
     });
   }
 
-    nomeSelect = document.querySelector("select.nome-select"),
-    crmSelect = document.querySelector("select.crm-select"),
-    especSelect = document.querySelector("select.especializacao-select"),
-    
+  
 
   axios.get(url).then((response) => {
     medicos = response.data;
+    const nomeSelect = document.querySelector(".nome-select");
+
     medicos.forEach((medico) => {
-      var option = document.createElement("option");
-      nomeSelect.id = "medico_id";
+      let option = document.createElement("option");
       option.value = `${medico.id}`;
-      nomeSelect.value = option.value;
       option.innerHTML = `${medico.nome}`;
-      nomeSelect.appendChild(option);
+      
+      nomeSelect.appendChild(option)
     });
 
-    const eMedico = document.querySelector(".nome-select");
-    new Choices(eMedico);
+    
+    new Choices(nomeSelect);
   });
 
   axios.get(url).then((response) => {
     medicos = response.data;
+    const crmSelect = document.querySelector(".crm-select");
+
     medicos.forEach((medico) => {
-      var option = document.createElement("option");
-      crmSelect.id = "medico_id";
-      option.value = `${medico.id}`;
-      crmSelect.value = option.value;
+      let option = document.createElement("option");
+      option.value = `${medico.crm}`;
       option.innerHTML = `${medico.crm}`;
-      crmSelect.appendChild(option);
+
+      crmSelect.appendChild(option)
     });
 
-    const eMedico = document.querySelector(".crm-select");
-    new Choices(eMedico);
+    
+    new Choices(crmSelect);
   });
 
   axios.get(url).then((response) => {
     medicos = response.data;
+    const especializacaoSelect = document.querySelector(".especializacao-select");
+
     medicos.forEach((medico) => {
-      var option = document.createElement("option");
-      especSelect.id = "medico_id";
-      option.value = `${medico.id}`;
-      especSelect.value = option.value;
+      let option = document.createElement("option");
+      option.value = `${medico.especializacao}`;
       option.innerHTML = `${medico.especializacao}`;
-      especSelect.appendChild(option);
+
+      especializacaoSelect.appendChild(option)
     });
 
-    const eMedico = document.querySelector(".especializacao-select");
-    new Choices(eMedico);
+    
+    new Choices(especializacaoSelect);
   });
 
   console.log(url);
 
+  console.log(options)
   axios.get(url).then((response) => {
     medicos = response.data;
-    medicos.forEach((medico) => {
-      let tr = document.createElement("tr");
-      tr.innerHTML = ` 
-            <td>${medico.nome}</td> 
-            <td>${medico.crm}</td>
-            <td>${medico.especializacao}</td> 
-            <td>${medico.telefone}</td>
-            <td>${medico.email}</td>                                                              
-            <td class="acoes">
-                <a href="view.html?id=${medico.id}" id="visualizar" class="btn btn-show">
-                <span class="mdi mdi-eye"></span>
-                </a>
-                <a href="edit.html?id=${medico.id}" id="editar" class="btn btn-edit">
-                <span class="mdi mdi-lead-pencil"></span>
-                </a>
-                <button class="btn btn-delete" type="button" onclick="excluirMedico(event, ${medico.id})">
-                <span class="mdi mdi-trash-can-outline"></span>
-                </button>
-            
-            </td>`;
 
-      table.appendChild(tr);
-    });
+    if (medicos.length > 0) {
+      medicos.forEach((medico) => {
+        let tr = document.createElement("tr");
+        tr.innerHTML = ` 
+              <td>${medico.nome}</td> 
+              <td>${medico.crm}</td>
+              <td>${medico.especializacao}</td> 
+              <td>${medico.telefone}</td>
+              <td>${medico.email}</td>                                                              
+              <td class="acoes">
+                  <a href="view.html?id=${medico.id}" id="visualizar" class="btn btn-show">
+                  <span class="mdi mdi-eye"></span>
+                  </a>
+                  <a href="edit.html?id=${medico.id}" id="editar" class="btn btn-edit">
+                  <span class="mdi mdi-lead-pencil"></span>
+                  </a>
+                  <button class="btn btn-delete" type="button" onclick="excluirMedico(event, ${medico.id})">
+                  <span class="mdi mdi-trash-can-outline"></span>
+                  </button>
+              
+              </td>`;
+
+        table.appendChild(tr);
+      });
+    } else {
+      let tabelaMedicos = document.querySelector("table#tabela-medicos")
+      let p = document.createElement("p")
+      p.classList.add('text-center')
+      p.innerText = "Nenhum dado encontrado."
+
+      tabelaMedicos.after(p)
+    }
   });
-
+  
 };
-
 function filtrarMedico(event) {
 
+  medico_id = document.querySelector("select.nome-select").value,
+  crm = document.querySelector("select.crm-select").value,
+  especializacao = document.querySelector("select.especializacao-select").value,
+
+  options = {}
+  
+  if (medico_id) options.medico_id =  medico_id
+  if (crm) options.crm = crm
+  if (especializacao) options.especializacao = especializacao 
+
+  initFn(event, options)  
 }
+
 
 function excluirMedico(event, id) {
   console.log(event);
