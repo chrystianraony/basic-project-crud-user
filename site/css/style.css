@@ -354,4 +354,30 @@ option {
 
 /* SELECT MEDICO */
 
+.form {
+  display: flex;
+}
+
+
+.form .form-control {
+  position: relative;
+  margin-right: 30px;
+  flex: 1;
+}
+
+.form .form-control:last-child {
+  margin-right: 0;
+}
+
+.form .btn.btn-enviar {
+  /* margin-top: 17px; */
+  /* height: 61px; */
+  border: none;
+  position: absolute;
+  left: 0;
+  bottom: 1px;
+  height: 61px;
+  width: 100%;
+}
+
 /* END SELECT MEDICO */

@@ -6,33 +6,46 @@
     <main>
       <section id="usuarios">
         <div class="container">
-          <h2>
-            Lista de Médicos
-            <form action="#">
+          <form action="#" class="form">
               <div class="form-control">
-                <label for="filtro">Filtro:</label>
-                <label for="medico-nome">Nome do Médico:</label>
+                <label for="medico-nome">
+                  <h3>Nome do Médico:</h3>
+                </label>
                 <select name="medico-nome" class="nome-select">
                   <option value="">Selecione um Médico</option>
                 </select>
-                <label for="crm">CRM do Médico:</label>
+              </div>
+              <div class="form-control">
+                <label for="crm">
+                  <h3>CRM do Médico:</h3>
+                </label>
                 <select name="crm" class="crm-select">
                   <option value="">Selecione um CRM</option>
                 </select>
-                <label for="especializacao">Especialização do Médico:</label>
+              </div>
+              <div class="form-control">
+                <label for="especializacao">
+                  <h3>Especialização do Médico:</h3>
+                </label>
                 <select name="especializacao" class="especializacao-select">
                   <option value="">Selecione uma Especialização</option>
                 </select>
-                <button class="btn btn-enviar" type="button" onClick="filtrarMedico(event)">
+              </div>
+              <div class="form-control">
+                <button
+                  class="btn btn-enviar"
+                  type="button"
+                  onClick="filtrarMedico(event)"
+                >
                   Filtrar Médico
                 </button>
               </div>
-            </form>
-            <a href="/medicos/new.html" class="btn btn-new">
-              <span class="mdi mdi-account-multiple-plus"></span>
-              Criar Médico
-            </a>
-          </h2>
+          </form>
+          <h2>Lista de Médicos</h2>
+          <a href="/medicos/new.html" class="btn btn-new">
+            <span class="mdi mdi-account-multiple-plus"></span>
+            Criar Médico
+          </a>
           <table id="tabela-medicos">
             <thead>
               <tr>
