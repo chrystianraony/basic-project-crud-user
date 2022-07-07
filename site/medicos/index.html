@@ -12,11 +12,17 @@
               <div class="form-control">
                 <label>Filtro:</label>
                 <label for="medico-nome">Nome do Médico:</label>
-                <select name="medico-nome" class="nome-select"></select>
+                <select name="medico-nome" class="nome-select">
+                  <option value="">Selecione um Médico</option>
+                </select>
                 <label for="crm">CRM do Médico:</label>
-                <select name="crm" class="crm-select"></select>
+                <select name="crm" class="crm-select">
+                  <option value="">Selecione um CRM</option>
+                </select>
                 <label for="especializacao">Especialização do Médico:</label>
-                <select name="especializacao" class="especializacao-select"></select>
+                <select name="especializacao" class="especializacao-select">
+                  <option value="">Selecione uma Especialização</option>
+                </select>
                 <button class="btn btn-enviar" type="button" onClick="filtrarMedico(event)">
                   Filtrar Médico
                 </button>
@@ -27,7 +33,7 @@
               Criar Médico
             </a>
           </h2>
-          <table>
+          <table id="tabela-medicos">
             <thead>
               <tr>
                 <th>Nome</th>
@@ -50,7 +56,6 @@
 
     <script src="/js/medicos/index.js" type="text/javascript"></script>
     <script src="/js/utils/loadJS.js" type="text/javascript"></script>
-    <script src="/js/medicos/index.js" type="text/javascript"></script>
     <script src="/js/index.js" type="text/javascript"></script>
   </body>
 </html>

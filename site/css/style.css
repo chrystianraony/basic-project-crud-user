@@ -11,6 +11,10 @@ body {
   display: block;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .btn {
   background: #fff;
   color: #222222;

@@ -10,11 +10,17 @@ module.exports = {
         
         if (params.medico_id) {
           builder.where('id', params.medico_id)
-        } else if (params.nome) {
+        }
+        
+        if (params.nome) {
           builder.where('nome', params.nome)
-        } else if (params.crm) {
+        }
+        
+        if (params.crm) {
           builder.where('crm', params.crm)
-        } else if (params.especializacao) {
+        }
+        
+        if (params.especializacao) {
           builder.where('especializacao', params.especializacao)
         }
         
