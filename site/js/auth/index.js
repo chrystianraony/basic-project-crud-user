@@ -10,22 +10,20 @@ inputs.forEach(function (input) {
   });
 });
 
-// const input = document.querySelectorAll(
-//   ".validate-input .input100 .validate-form"
-// );
-// input.forEach(function (input) {
-//   input.addEventListener('submit', () => {
-//     let check = true;
-//     for (let i = 0; i < input.length; i++) {
-//       if (validate(input[i]) == false) {
-//         showValidate(input[i]);
-//         check = false;
-//       }
-//     }
-//   });
+const submit = document.querySelector(".login100-form-btn");
 
-//   return check;
-// });
+submit.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    let check = true;
+    for (let i = 0; i < inputs.length; i++) {
+      if (validate(inputs[i]) == false) {
+        //showValidate(input[i]);
+        console.log("Não é válido")
+        check = false;
+      }
+    }
+  });
 
 // const valid = document.querySelector('.validate-form .input100')
 // valid.forEach(() => {
@@ -34,25 +32,21 @@ inputs.forEach(function (input) {
 //     });
 // });
 
-// function validate(input) {
-//   if (
-//     document.querySelector(input).attr("type") == "email" ||
-//     document.querySelector(input).attr("name") == "email"
-//   ) {
-//     if (
-//       document
-//         .querySelector(input)
-//         .value.trim()
-//         .match(!/\S+@\S+\.\S+/) == null
-//     ) {
-//       return false;
-//     }
-//   } else {
-//     if (document.querySelector(input).value.trim() == "") {
-//       return false;
-//     }
-//   }
-// }
+function validate(input) {
+  if (input.getAttribute("type") == "email" || input.getAttribute("name") == "email") {
+    if (
+      input
+        .value.trim()
+        .match(!/\S+@\S+\.\S+/) == null
+    ) {
+      return false;
+    }
+  } else {
+    if (input.value.trim() == "") {
+      return false;
+    }
+  }
+}
 
 // function showValidate(input) {
 //   let thisAlert = document.querySelector(input).parent();
@@ -66,26 +60,26 @@ inputs.forEach(function (input) {
 //   document.querySelector(thisAlert).classList.remove("alert-validate");
 // }
 
-// let showPass = 0;
-// const show = document.querySelector(".btn-show-pass");
+let shouldShow = false;
+const showBtn = document.querySelector(".btn-show-pass");
 
-// show.addEventListener("onClick", () => {
-//   if (showPass == 0) {
-//     document.querySelector(this).next("input").attr("type", "text");
-//     document.querySelector(this).querySelector("i").classList.remove("mdi-eye");
-//     document
-//       .querySelector(this)
-//       .querySelector("i")
-//       .classList.add("mdi-eye-off");
-//     showPass = 1;
-//   } else {
-//     document.querySelector(this).next("input").attr("type", "password");
-//     document.querySelector(this).querySelector("i").classList.add("mdi-eye");
-//     document
-//       .querySelector(this)
-//       .querySelector("i")
-//       .classList.remove("mdi-eye-off");
-//     showPass = 0;
-//   }
-// });
+showBtn.addEventListener('click', () => {
+  if (shouldShow) {
+    showBtn.nextElementSibling.setAttribute("type", "password");
+    showBtn.querySelector("i").classList.add("mdi-eye");
+    document
+      // .querySelector(this)
+      // .querySelector("i")
+      .classList.remove("mdi-eye");
+    showPass = 0;
+  } else {
+    
+    showBtn.nextElementSibling.setAttribute("type", "text");
+    // showBtn.querySelector("i").classList.remove("mdi-eye");
+    // showBtn
+    //   .querySelector("i")
+    //   .classList.add("mdi-eye-off");
+      shouldShow = 1;
+  }
+});
 
