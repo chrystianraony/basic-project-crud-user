@@ -1,4 +1,4 @@
-const initFn = (e, options = { }) => {
+const initFn = (e, options = {nome: '', crm: '', especializacao: ''}) => {
   let table = document.querySelector("tbody#tabelaTeste");
   table.innerHTML = ""
 
@@ -18,6 +18,7 @@ const initFn = (e, options = { }) => {
       }
     });
   }
+  console.log(url)
 
   
 
@@ -69,7 +70,7 @@ const initFn = (e, options = { }) => {
     new Choices(especializacaoSelect);
   });
 
-  console.log(url);
+  
 
   console.log(options)
   axios.get(url).then((response) => {
@@ -111,6 +112,14 @@ const initFn = (e, options = { }) => {
   
 };
 function filtrarMedico(event) {
+  event.preventDefault();
+
+  options = {
+    nome: document.querySelector("select.nome-select"),
+    crm: document.querySelector("select.crm-select"),
+    especializacao: document.querySelector("select.especializacao-select")
+  }
+
 
   medico_id = document.querySelector("select.nome-select").value,
   crm = document.querySelector("select.crm-select").value,
