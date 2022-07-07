@@ -27,15 +27,8 @@ const initFn = (e, options = {nome: '', crm: '', especializacao: ''}) => {
     const nomeSelect = document.querySelector(".nome-select");
 
     medicos.forEach((medico) => {
-<<<<<<< HEAD
-      var option = document.createElement("option");
-      nomeSelect.nome = "nome"
-      option.value = `${medico.nome}`;
-      nomeSelect.value = option.value;
-=======
       let option = document.createElement("option");
       option.value = `${medico.id}`;
->>>>>>> cde0ed123dbc0eeae8bb6854b70970a690acc5d2
       option.innerHTML = `${medico.nome}`;
       
       nomeSelect.appendChild(option)
@@ -50,23 +43,11 @@ const initFn = (e, options = {nome: '', crm: '', especializacao: ''}) => {
     const crmSelect = document.querySelector(".crm-select");
 
     medicos.forEach((medico) => {
-<<<<<<< HEAD
-      
-      var option = document.createElement("option");
-      crmSelect.id = "medico_id";
-      option.value = `${medico.id}`;
-      crmSelect.value = option.value;
-      option.innerHTML = `${medico.crm}`;
-      crmSelect.appendChild(option);
-
-
-=======
       let option = document.createElement("option");
       option.value = `${medico.crm}`;
       option.innerHTML = `${medico.crm}`;
 
       crmSelect.appendChild(option)
->>>>>>> cde0ed123dbc0eeae8bb6854b70970a690acc5d2
     });
 
     
@@ -140,9 +121,6 @@ function filtrarMedico(event) {
   }
 
 
-<<<<<<< HEAD
-  console.log(options)
-=======
   medico_id = document.querySelector("select.nome-select").value,
   crm = document.querySelector("select.crm-select").value,
   especializacao = document.querySelector("select.especializacao-select").value,
@@ -154,7 +132,6 @@ function filtrarMedico(event) {
   if (especializacao) options.especializacao = especializacao 
 
   initFn(event, options)  
->>>>>>> cde0ed123dbc0eeae8bb6854b70970a690acc5d2
 }
 
 
