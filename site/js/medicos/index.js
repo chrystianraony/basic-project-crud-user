@@ -1,4 +1,4 @@
-const initFn = (e, options = { }) => {
+const initFn = (e, options = {nome: '', crm: '', especializacao: ''}) => {
   let table = document.querySelector("tbody#tabelaTeste");
 
   // capturar os campos de filtros e passar na URL
@@ -17,6 +17,7 @@ const initFn = (e, options = { }) => {
       }
     });
   }
+  console.log(url)
 
     nomeSelect = document.querySelector("select.nome-select"),
     crmSelect = document.querySelector("select.crm-select"),
@@ -27,8 +28,8 @@ const initFn = (e, options = { }) => {
     medicos = response.data;
     medicos.forEach((medico) => {
       var option = document.createElement("option");
-      nomeSelect.id = "medico_id";
-      option.value = `${medico.id}`;
+      nomeSelect.nome = "nome"
+      option.value = `${medico.nome}`;
       nomeSelect.value = option.value;
       option.innerHTML = `${medico.nome}`;
       nomeSelect.appendChild(option);
@@ -41,12 +42,15 @@ const initFn = (e, options = { }) => {
   axios.get(url).then((response) => {
     medicos = response.data;
     medicos.forEach((medico) => {
+      
       var option = document.createElement("option");
       crmSelect.id = "medico_id";
       option.value = `${medico.id}`;
       crmSelect.value = option.value;
       option.innerHTML = `${medico.crm}`;
       crmSelect.appendChild(option);
+
+
     });
 
     const eMedico = document.querySelector(".crm-select");
@@ -68,7 +72,7 @@ const initFn = (e, options = { }) => {
     new Choices(eMedico);
   });
 
-  console.log(url);
+  
 
   axios.get(url).then((response) => {
     medicos = response.data;
@@ -100,7 +104,16 @@ const initFn = (e, options = { }) => {
 };
 
 function filtrarMedico(event) {
+  event.preventDefault();
 
+  options = {
+    nome: document.querySelector("select.nome-select"),
+    crm: document.querySelector("select.crm-select"),
+    especializacao: document.querySelector("select.especializacao-select")
+  }
+
+
+  console.log(options)
 }
 
 function excluirMedico(event, id) {
