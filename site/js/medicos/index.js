@@ -18,8 +18,6 @@ const initFn = (e, options = {nome: '', crm: '', especializacao: ''}) => {
       }
     });
   }
-  console.log(url)
-
   
 
   axios.get(url).then((response) => {
@@ -72,7 +70,6 @@ const initFn = (e, options = {nome: '', crm: '', especializacao: ''}) => {
 
   
 
-  console.log(options)
   axios.get(url).then((response) => {
     medicos = response.data;
 
@@ -136,7 +133,6 @@ function filtrarMedico(event) {
 
 
 function excluirMedico(event, id) {
-  console.log(event);
   event.preventDefault();
 
   Swal.fire({

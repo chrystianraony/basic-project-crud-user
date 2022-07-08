@@ -66,26 +66,19 @@ inputs.forEach(function (input) {
 //   document.querySelector(thisAlert).classList.remove("alert-validate");
 // }
 
-// let showPass = 0;
-// const show = document.querySelector(".btn-show-pass");
+let showPass = 0;
+const show = document.querySelector(".btn-show-pass");
 
-// show.addEventListener("onClick", () => {
-//   if (showPass == 0) {
-//     document.querySelector(this).next("input").attr("type", "text");
-//     document.querySelector(this).querySelector("i").classList.remove("mdi-eye");
-//     document
-//       .querySelector(this)
-//       .querySelector("i")
-//       .classList.add("mdi-eye-off");
-//     showPass = 1;
-//   } else {
-//     document.querySelector(this).next("input").attr("type", "password");
-//     document.querySelector(this).querySelector("i").classList.add("mdi-eye");
-//     document
-//       .querySelector(this)
-//       .querySelector("i")
-//       .classList.remove("mdi-eye-off");
-//     showPass = 0;
-//   }
-// });
-
+show.addEventListener("onClick", () => {
+  if (showPass == 0) {
+    document.querySelector(this).next("input").attr("type", "text");
+    document.querySelector(this).querySelector("i").classList.remove("mdi-eye");
+    document.querySelector(this).querySelector("i").classList.add("mdi-eye-off");
+    showPass = 1;
+  } else {
+    document.querySelector(this).next("input").attr("type", "password");
+    document.querySelector(this).querySelector("i").classList.add("mdi-eye");
+    document.querySelector(this).querySelector("i").classList.remove("mdi-eye-off");
+    showPass = 0;
+  }
+});

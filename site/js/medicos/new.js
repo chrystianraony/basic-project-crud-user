@@ -40,7 +40,6 @@ function validarFormulario(campos, data) {
     return valido;
   }
   function cadastrarMedico(event) {
-    console.log(event);
     event.preventDefault();
   
     const campos = {

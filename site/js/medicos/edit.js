@@ -66,7 +66,6 @@ function validarFormulario(campos, data) {
     if (!validarFormulario(campos, data)) {
       return;
     }
-    console.log(data);
     Swal.fire({
       title: "Atualizar Medico?",
       showDenyButton: true,
