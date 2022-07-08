@@ -6,6 +6,7 @@ const CargoController = require("./controllers/CargoController");
 const PacienteController = require("./controllers/PacienteController");
 const MedicosController = require("./controllers/MedicosController");
 const AgendamentosController = require("./controllers/AgendamentosController");
+const AuthController = require("./controllers/AuthController");
 
 routes.get("/users", UserController.index);
 routes.post("/users", UserController.create);
@@ -36,5 +37,7 @@ routes.post("/agendamentos", AgendamentosController.create);
 routes.get("/agendamentos/:id", AgendamentosController.get);
 routes.put("/agendamentos/:id", AgendamentosController.update);
 routes.delete("/agendamentos/:id", AgendamentosController.delete);
+
+routes.post("/auth/signin", AuthController.signin);
 
 module.exports = routes;

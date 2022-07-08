@@ -78,6 +78,13 @@ button:hover {
 	cursor: pointer;
 }
 
+p.error {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 37px;
+  text-align: center;
+}
+
 .txt1 {
   font-family: Poppins-Regular;
   font-size: 13px;
@@ -275,7 +282,6 @@ button:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding-top: 13px;
 }
 
 .wrap-login100-form-btn {

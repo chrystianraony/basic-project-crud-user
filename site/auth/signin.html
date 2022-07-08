@@ -23,15 +23,15 @@
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="text" name="email">
+						<input id="email" class="input100" type="text" name="email">
 						<span class="focus-input100" data-placeholder="Email"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<span class="btn-show-pass" onClick(show)>
-							<i class="mdi mdi-eye"></i>
+						<span class="btn-show-pass">
+							<i class="test mdi mdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="pass">
+						<input id="password" class="input100" type="password" name="pass">
 						<span class="focus-input100" data-placeholder="Password"></span>
 					</div>
 
@@ -44,7 +44,7 @@
 						</div>
 					</div>
 
-					<div class="text-center p-t-115">
+					<!-- <div class="text-center p-t-115">
 						<span class="txt1">
 							Don’t have an account?
 						</span>
@@ -52,7 +52,7 @@
 						<a class="txt2" href="/users/new.html">
 							Sign Up
 						</a>
-					</div>
+					</div> -->
 				</form>
             </div>
 
@@ -60,6 +60,7 @@
 
     </div>
 
+		<script src="/js/utils/loadJS.js" type="text/javascript"></script>
     <script src="/js/auth/index.js" type="text/javascript"></script>
 
 </body>

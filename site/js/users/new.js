@@ -65,6 +65,7 @@ function cadastrarUsuario(event) {
     rg: document.getElementById("rg"),
     email: document.getElementById("email"),
     cidade: document.getElementById("cidade"),
+    senha: document.getElementById("senha"),
     cargo_id: document.getElementById("cargo_id"),
   };
 
@@ -74,6 +75,7 @@ function cadastrarUsuario(event) {
     rg: campos.rg.value.trim(),
     email: campos.email.value.trim(),
     cidade: campos.cidade.value.trim(),
+    senha: campos.senha.value.trim(),
     cargo_id: campos.cargo_id.value.trim(),
   };
 

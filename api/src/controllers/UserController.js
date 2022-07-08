@@ -1,15 +1,20 @@
 const knex = require("../database");
+const bcrypt = require('bcrypt');
+const saltRounds = 12;
 
 module.exports = {
   async index(req, res) {
     const results = await knex("users AS u")
-    .select("u.id", "u.nome", "u.rg", "u.cpf", "u.email", "u.cidade", "u.cargo_id", "c.nome AS cargo_nome", "u.created_at", "u.updated_at")
+    .select("u.id", "u.nome", "u.rg", "u.cpf", "u.email", "u.cidade", "u.senha", "u.cargo_id", "c.nome AS cargo_nome", "u.created_at", "u.updated_at")
     .join("cargos AS c", "u.cargo_id", "c.id")
     return res.json(results);
   },
   async create(req, res, next) {
     try {
-      const { nome, cpf, rg, email, cidade, cargo_id } = req.body;
+      const { nome, cpf, rg, email, cidade, senha, cargo_id } = req.body;
+    
+       let salt = await bcrypt.genSalt(saltRounds)       
+       let senhaHash = await bcrypt.hash(senha, salt)
 
       await knex("users").insert({
         nome,
@@ -17,6 +22,7 @@ module.exports = {
         rg,
         email,
         cidade,
+        senha: senhaHash,
         cargo_id
       })
       return res.status(201).send({ message: "Usuário Criado" }); //201 eh que foi adicionado
