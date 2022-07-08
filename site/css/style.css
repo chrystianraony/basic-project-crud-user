@@ -59,6 +59,7 @@ body {
 }
 
 .btn.btn-delete {
+  border: none;
   background: #f34f21;
   color: #fff;
 }
